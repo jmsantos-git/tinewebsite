@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kristine "Tine" Pancho — Virtual Assistant for Children's Book Authors</title>
+<meta name="description" content="Tine Pancho helps children's book authors launch with heart: social media management, author websites, book trailers, and graphic design.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500;1,9..144,600&family=Nunito:wght@400;500;600;700;800&family=Caveat:wght@500;600;700&display=swap" rel="stylesheet">
+
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        colors: {
+          cream:   '#FCF6F0',
+          paper:   '#FFFDFB',
+          blush:   '#F4D9CE',
+          blushdeep: '#EABBAA',
+          ink:     '#2E3148',
+          inksoft: '#5C5F78',
+          coral:   '#E38857',
+          coraldark:'#C96D3D',
+          gold:    '#EFB35E',
+          sage:    '#8EA687',
+        },
+        fontFamily: {
+          serif: ['Fraunces', 'serif'],
+          sans: ['Nunito', 'sans-serif'],
+          script: ['Caveat', 'cursive'],
+        },
+      }
+    }
+  }
+</script>
+
+<style>
+  html { scroll-behavior: smooth; }
+  body { background-color: #FCF6F0; }
+
+  .torn-edge {
+    -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 20' preserveAspectRatio='none'%3E%3Cpath d='M0 8 Q 5 0 10 8 T 20 8 T 30 8 T 40 8 T 50 8 T 60 8 T 70 8 T 80 8 T 90 8 T 100 8 T 110 8 T 120 8 T 130 8 T 140 8 T 150 8 T 160 8 T 170 8 T 180 8 T 190 8 T 200 8 V20 H0 Z' fill='black'/%3E%3C/svg%3E");
+    -webkit-mask-size: 100% 100%;
+    mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 20' preserveAspectRatio='none'%3E%3Cpath d='M0 8 Q 5 0 10 8 T 20 8 T 30 8 T 40 8 T 50 8 T 60 8 T 70 8 T 80 8 T 90 8 T 100 8 T 110 8 T 120 8 T 130 8 T 140 8 T 150 8 T 160 8 T 170 8 T 180 8 T 190 8 T 200 8 V20 H0 Z' fill='black'/%3E%3C/svg%3E");
+    mask-size: 100% 100%;
+  }
+
+  .chapter-label {
+    font-family: 'Caveat', cursive;
+    font-size: 1.75rem;
+    color: #E38857;
+    line-height: 1;
+  }
+
+  .tape {
+    position: absolute;
+    background: rgba(239, 179, 94, 0.55);
+    box-shadow: 0 1px 3px rgba(46,49,72,0.15);
+  }
+
+  .polaroid {
+    background: #fff;
+    padding: 14px 14px 44px 14px;
+    box-shadow: 0 20px 40px -12px rgba(46,49,72,0.35);
+    border-radius: 2px;
+  }
+
+  ::selection { background: #F0B95E; color: #2E3148; }
+
+  .focus-ring:focus-visible {
+    outline: 3px solid #C96D3D;
+    outline-offset: 3px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    * { animation: none !important; transition: none !important; }
+  }
+
+  .underline-swash {
+    position: relative;
+    display: inline-block;
+  }
+  .underline-swash svg {
+    position: absolute;
+    left: 0;
+    bottom: -0.18em;
+    width: 100%;
+    height: 0.35em;
+  }
+
+  .card-lift { transition: transform .25s ease, box-shadow .25s ease; }
+  .card-lift:hover { transform: translateY(-4px); box-shadow: 0 18px 30px -14px rgba(46,49,72,0.25); }
+
+  .nav-link { position: relative; }
+  .nav-link::after {
+    content: '';
+    position: absolute;
+    left: 0; right: 0; bottom: -4px;
+    height: 2px;
+    background: #E38857;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform .2s ease;
+  }
+  .nav-link:hover::after { transform: scaleX(1); }
+</style>
+</head>
+
+<body class="font-sans text-ink antialiased">
+
+<a href="#main" class="sr-only focus:not-sr-only focus:fixed focus:top-2 focus:left-2 focus:z-[100] focus:bg-white focus:px-4 focus:py-2 focus:rounded">Skip to content</a>
+
+<!-- ============ HEADER ============ -->
+<header class="sticky top-0 z-50 bg-cream/95 backdrop-blur border-b border-blush">
+  <div class="max-w-6xl mx-auto px-6 lg:px-10 h-20 flex items-center justify-between">
+    <a href="#top" class="flex flex-col leading-none focus-ring rounded">
+      <span class="font-script text-3xl text-ink -mb-1">Kristine</span>
+      <span class="font-serif text-xs tracking-[0.25em] text-inksoft">PANCHO &nbsp;·&nbsp; VIRTUAL ASSISTANCE</span>
+    </a>
+
+    <nav class="hidden md:flex items-center gap-8 font-semibold text-sm text-ink">
+      <a href="#about" class="nav-link focus-ring rounded">About</a>
+      <a href="#services" class="nav-link focus-ring rounded">Services</a>
+      <a href="#portfolio" class="nav-link focus-ring rounded">Portfolio</a>
+      <a href="#testimonials" class="nav-link focus-ring rounded">Reviews</a>
+      <a href="#contact" class="nav-link focus-ring rounded">Contact</a>
+    </nav>
+
+    <a href="#contact" class="hidden sm:inline-flex items-center gap-2 bg-coral hover:bg-coraldark text-white font-bold text-sm px-5 py-2.5 rounded-full transition-colors focus-ring">
+      Book a Free Call
+    </a>
+  </div>
+</header>
+
+<main id="main">
+
+<!-- ============ HERO ============ -->
+<section id="top" class="relative overflow-hidden">
+  <div class="max-w-6xl mx-auto px-6 lg:px-10 pt-16 pb-24 lg:pt-24 lg:pb-32 grid lg:grid-cols-2 gap-16 items-center">
+
+    <div>
+      <p class="chapter-label mb-3">Chapter One</p>
+      <h1 class="font-serif text-4xl sm:text-5xl lg:text-[3.4rem] leading-[1.08] text-ink font-medium">
+        Your book deserves a launch as good as your story.
+      </h1>
+      <p class="mt-6 text-lg text-inksoft leading-relaxed max-w-lg">
+        I'm Tine — a virtual assistant and social media manager who works exclusively with children's book authors.
+        I handle the social feeds, the author website, the countdown graphics, and the launch-day chaos, so you can
+        focus on the part only you can do: writing the next one.
+      </p>
+
+      <div class="mt-9 flex flex-wrap items-center gap-4">
+        <a href="#contact" class="inline-flex items-center gap-2 bg-coral hover:bg-coraldark text-white font-bold px-7 py-3.5 rounded-full transition-colors focus-ring">
+          Book a Free Discovery Call
+        </a>
+        <a href="#portfolio" class="inline-flex items-center gap-2 text-ink font-bold px-7 py-3.5 rounded-full border-2 border-ink/15 hover:border-coral hover:text-coral transition-colors focus-ring">
+          View Portfolio
+        </a>
+      </div>
+
+      <div class="mt-10 flex flex-wrap gap-x-8 gap-y-3 text-sm font-semibold text-inksoft">
+        <span>15+ years in sales &amp; marketing</span>
+        <span class="text-blushdeep">•</span>
+        <span>Mass Communication graduate</span>
+        <span class="text-blushdeep">•</span>
+        <span>Canva design specialist</span>
+      </div>
+    </div>
+
+    <div class="relative mx-auto max-w-sm lg:max-w-none">
+      <svg viewBox="0 0 420 420" class="w-full h-auto" aria-hidden="true">
+        <path d="M210 30 C 300 30 380 60 380 130 L 380 340 C 380 350 372 356 362 352 C 320 336 260 328 210 340 C 160 328 100 336 58 352 C 48 356 40 350 40 340 L 40 130 C 40 60 120 30 210 30 Z" fill="#F4D9CE"/>
+        <line x1="210" y1="45" x2="210" y2="335" stroke="#EABBAA" stroke-width="2"/>
+      </svg>
+
+      <div class="polaroid absolute top-6 -left-2 sm:left-2 w-40 sm:w-48 rotate-[-6deg]">
+        <div class="tape w-14 h-6 -top-3 left-1/2 -translate-x-1/2 rotate-[-3deg]"></div>
+        <img src="img/headshot.jpg" alt="Tine Pancho smiling, seated" class="w-full h-44 sm:h-52 object-cover">
+        <p class="font-script text-xl text-center text-ink mt-2">Hi, I'm Tine!</p>
+      </div>
+
+      <div class="absolute bottom-8 right-2 sm:right-8 bg-paper rounded-2xl shadow-lg px-5 py-4 max-w-[200px] rotate-[3deg]">
+        <p class="font-serif text-2xl text-coral leading-none">150+</p>
+        <p class="text-xs font-bold text-inksoft mt-1">social graphics designed for author launches</p>
+      </div>
+
+      <div class="absolute top-4 right-0 sm:right-4 bg-sage/90 text-white rounded-full w-20 h-20 flex flex-col items-center justify-center text-center rotate-[8deg] shadow-md">
+        <span class="font-serif text-lg leading-none">2</span>
+        <span class="text-[9px] font-bold leading-tight px-1">book launches managed</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="h-6 torn-edge bg-blush"></div>
+</section>
+
+<!-- ============ ABOUT ============ -->
+<section id="about" class="bg-blush">
+  <div class="max-w-6xl mx-auto px-6 lg:px-10 py-20 lg:py-28 grid lg:grid-cols-[1fr,1.15fr] gap-14 items-center">
+
+    <div class="relative mx-auto lg:mx-0 max-w-sm">
+      <div class="absolute -inset-4 border-2 border-ink/10 rounded-[2rem] rotate-2"></div>
+      <img src="img/headshot.jpg" alt="Kristine Tine Pancho" class="relative w-full rounded-[2rem] shadow-xl object-cover -rotate-1">
+    </div>
+
+    <div>
+      <p class="chapter-label mb-3">Chapter Two</p>
+      <h2 class="font-serif text-3xl sm:text-4xl text-ink font-medium mb-6">Nice to meet you, author friend</h2>
+
+      <div class="space-y-4 text-inksoft leading-relaxed max-w-xl">
+        <p>Hi, I'm Kristine — but everyone calls me Tine. I'm a wife to an incredible man, a mom to two adorable boys, and a Mass Communication graduate with almost 15 years of combined experience in sales, marketing, administrative support, and graphic design.</p>
+        <p>These days, I put all of that experience toward one audience I genuinely love working with: children's book authors. There's something special about helping a story find its readers — from the first teaser post, through launch day, to the thank-you note after that first five-star review comes in.</p>
+        <p>If I don't know how to do something yet, I'll learn it. And if I need help, I'll ask — because that's how the best work gets done.</p>
+      </div>
+
+      <p class="font-script text-3xl sm:text-4xl text-coral mt-8">"Positivity, Confidence, and Persistence — let's make it happen!"</p>
+
+      <div class="mt-10 grid grid-cols-3 gap-4 max-w-lg">
+        <div>
+          <p class="font-serif text-lg text-ink mb-1">Positivity</p>
+          <p class="text-sm text-inksoft">A can-do attitude on even the busiest launch week.</p>
+        </div>
+        <div>
+          <p class="font-serif text-lg text-ink mb-1">Confidence</p>
+          <p class="text-sm text-inksoft">Backed by 15 years across marketing and design.</p>
+        </div>
+        <div>
+          <p class="font-serif text-lg text-ink mb-1">Persistence</p>
+          <p class="text-sm text-inksoft">I follow through until the launch actually lands.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SERVICES ============ -->
+<section id="services" class="bg-cream">
+  <div class="max-w-6xl mx-auto px-6 lg:px-10 py-20 lg:py-28">
+    <div class="max-w-2xl mb-14">
+      <p class="chapter-label mb-3">Chapter Three</p>
+      <h2 class="font-serif text-3xl sm:text-4xl text-ink font-medium">How I help your book reach its readers</h2>
+      <p class="mt-4 text-inksoft leading-relaxed">Every author's launch has the same core needs — a presence online, a warm audience, and a way to turn browsers into readers. Here's where I usually come in.</p>
+    </div>
+
+    <div class="grid sm:grid-cols-2 gap-6">
+
+      <div class="card-lift bg-paper rounded-3xl p-8 border border-blush">
+        <svg width="44" height="44" viewBox="0 0 44 44" fill="none" aria-hidden="true">
+          <circle cx="22" cy="22" r="21" stroke="#E38857" stroke-width="1.5"/>
+          <path d="M14 24v-4a2 2 0 012-2h2l8-5v18l-8-5h-2a2 2 0 01-2-2z" stroke="#2E3148" stroke-width="1.6" stroke-linejoin="round"/>
+          <path d="M28 19c1.2 1 1.2 5 0 6" stroke="#2E3148" stroke-width="1.6" stroke-linecap="round"/>
+        </svg>
+        <h3 class="font-serif text-xl text-ink mt-5 mb-2">Social Media Management for Authors</h3>
+        <p class="text-inksoft text-sm leading-relaxed mb-4">Consistent, engaging content that builds a real readership around your books — not just followers.</p>
+        <ul class="text-sm text-inksoft space-y-1.5">
+          <li>• Content calendars &amp; launch strategy</li>
+          <li>• Amazon review &amp; giveaway campaigns</li>
+          <li>• Instagram &amp; Facebook feed design</li>
+        </ul>
+      </div>
+
+      <div class="card-lift bg-paper rounded-3xl p-8 border border-blush">
+        <svg width="44" height="44" viewBox="0 0 44 44" fill="none" aria-hidden="true">
+          <circle cx="22" cy="22" r="21" stroke="#E38857" stroke-width="1.5"/>
+          <rect x="12" y="13" width="20" height="16" rx="2" stroke="#2E3148" stroke-width="1.6"/>
+          <path d="M12 18h20" stroke="#2E3148" stroke-width="1.6"/>
+          <circle cx="15.5" cy="15.5" r="0.8" fill="#2E3148"/>
+          <circle cx="18" cy="15.5" r="0.8" fill="#2E3148"/>
+        </svg>
+        <h3 class="font-serif text-xl text-ink mt-5 mb-2">Author Websites</h3>
+        <p class="text-inksoft text-sm leading-relaxed mb-4">A warm, professional home base for your books, built to turn visitors into subscribers.</p>
+        <ul class="text-sm text-inksoft space-y-1.5">
+          <li>• Custom layout &amp; landing pages</li>
+          <li>• Lead capture setup (free coloring sheets, etc.)</li>
+          <li>• Simple, easy-to-update design</li>
+        </ul>
+      </div>
+
+      <div class="card-lift bg-paper rounded-3xl p-8 border border-blush">
+        <svg width="44" height="44" viewBox="0 0 44 44" fill="none" aria-hidden="true">
+          <circle cx="22" cy="22" r="21" stroke="#E38857" stroke-width="1.5"/>
+          <rect x="13" y="16" width="14" height="12" rx="1.5" stroke="#2E3148" stroke-width="1.6"/>
+          <path d="M27 19l6-3v12l-6-3" stroke="#2E3148" stroke-width="1.6" stroke-linejoin="round"/>
+        </svg>
+        <h3 class="font-serif text-xl text-ink mt-5 mb-2">Book Trailers &amp; Video Content</h3>
+        <p class="text-inksoft text-sm leading-relaxed mb-4">Short, delightful videos that bring your characters to life before a reader ever opens the book.</p>
+        <ul class="text-sm text-inksoft space-y-1.5">
+          <li>• Animated teasers &amp; book trailers</li>
+          <li>• Launch reels for Instagram &amp; TikTok</li>
+          <li>• Storytime &amp; event promo videos</li>
+        </ul>
+      </div>
+
+      <div class="card-lift bg-paper rounded-3xl p-8 border border-blush">
+        <svg width="44" height="44" viewBox="0 0 44 44" fill="none" aria-hidden="true">
+          <circle cx="22" cy="22" r="21" stroke="#E38857" stroke-width="1.5"/>
+          <path d="M14 29l3-9 12-8 4 4-8 12-9 3z" stroke="#2E3148" stroke-width="1.6" stroke-linejoin="round"/>
+          <circle cx="27" cy="16" r="1.4" fill="#2E3148"/>
+        </svg>
+        <h3 class="font-serif text-xl text-ink mt-5 mb-2">Graphic &amp; Admin Support</h3>
+        <p class="text-inksoft text-sm leading-relaxed mb-4">All the behind-the-scenes details that make a brand feel complete and a launch feel calm.</p>
+        <ul class="text-sm text-inksoft space-y-1.5">
+          <li>• Brand boards, logos &amp; lead magnets</li>
+          <li>• Thank-you cards &amp; invitations</li>
+          <li>• Scheduling &amp; customer service</li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============ PORTFOLIO ============ -->
+<section id="portfolio" class="bg-blush">
+  <div class="max-w-6xl mx-auto px-6 lg:px-10 py-20 lg:py-28">
+    <div class="max-w-2xl mb-14">
+      <p class="chapter-label mb-3">Chapter Four</p>
+      <h2 class="font-serif text-3xl sm:text-4xl text-ink font-medium">Stories I've helped tell</h2>
+      <p class="mt-4 text-inksoft leading-relaxed">A few of the launches, campaigns, and brands I've had the joy of working on.</p>
+    </div>
+
+    <div class="space-y-8">
+
+      <!-- Rocky -->
+      <div class="grid md:grid-cols-2 gap-0 bg-paper rounded-3xl overflow-hidden shadow-sm">
+        <img src="img/rocky_clean.jpg" alt="Social media graphics for The Adventures of Rocky, including a Spooktacular October promo, book review graphic, free coloring book announcement, and Sun Rose availability post" class="w-full h-72 md:h-full object-cover">
+        <div class="p-8 sm:p-10 flex flex-col justify-center">
+          <p class="text-xs font-bold tracking-wide text-coral mb-2">SOCIAL MEDIA CAMPAIGN · BOOK LAUNCH · LEAD MAGNET</p>
+          <h3 class="font-serif text-2xl text-ink mb-3">The Adventures of Rocky series</h3>
+          <p class="text-sm text-inksoft mb-1">Author: Deirdre Palm Adams</p>
+          <p class="text-inksoft leading-relaxed">A full run of seasonal launch graphics, review highlights, and a free coloring book lead magnet that grew Rocky's community of young readers — plus availability announcements as the series expanded to new retailers.</p>
+        </div>
+      </div>
+
+      <!-- Pickles -->
+      <div class="grid md:grid-cols-2 gap-0 bg-paper rounded-3xl overflow-hidden shadow-sm">
+        <div class="p-8 sm:p-10 flex flex-col justify-center order-2 md:order-1">
+          <p class="text-xs font-bold tracking-wide text-coral mb-2">AMAZON LAUNCH · STORYTIME PROMO · REVIEW GRAPHICS</p>
+          <h3 class="font-serif text-2xl text-ink mb-3">Pickles the Mermaid</h3>
+          <p class="text-sm text-inksoft mb-1">Author: Laura Strachan</p>
+          <p class="text-inksoft leading-relaxed">From "It's Book Launch Day!" countdown graphics to storytime event promos, giveaway announcements, and Amazon review call-to-actions — a full splash of a release.</p>
+        </div>
+        <img src="img/pickles_clean.jpg" alt="Social media graphics for Pickles the Mermaid, including book launch day, storytime event, giveaway winner, and Amazon review graphics" class="w-full h-72 md:h-full object-cover order-1 md:order-2">
+      </div>
+
+      <!-- Farkel and Sparkle + Branding row -->
+      <div class="grid md:grid-cols-2 gap-8">
+
+        <div class="bg-paper rounded-3xl p-8 sm:p-10 flex flex-col justify-between shadow-sm">
+          <div>
+            <p class="text-xs font-bold tracking-wide text-coral mb-2">PROMO GRAPHICS</p>
+            <h3 class="font-serif text-2xl text-ink mb-3">Farkel and Sparkle</h3>
+            <p class="text-inksoft leading-relaxed">Bright, playful promotional graphics designed to introduce Farkel and Sparkle to new readers across social media.</p>
+          </div>
+          <svg viewBox="0 0 200 100" class="w-full h-24 mt-6" aria-hidden="true">
+            <path d="M30 70 Q40 30 55 65 Q65 40 80 68 Q92 45 105 66 Q118 42 132 67 Q145 44 160 65 Q170 35 178 70" stroke="#E38857" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+            <circle cx="30" cy="70" r="4" fill="#F0B95E"/>
+            <circle cx="105" cy="66" r="4" fill="#8EA687"/>
+            <circle cx="178" cy="70" r="4" fill="#E38857"/>
+          </svg>
+        </div>
+
+        <div class="bg-paper rounded-3xl overflow-hidden shadow-sm">
+          <img src="img/brandboards_clean.jpg" alt="Brand boards and lead magnets designed in Canva" class="w-full h-48 object-cover">
+          <div class="p-6">
+            <p class="text-xs font-bold tracking-wide text-coral mb-2">BRAND BOARDS · LEAD MAGNETS</p>
+            <h3 class="font-serif text-lg text-ink">Custom graphic design &amp; branding</h3>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="bg-paper rounded-3xl overflow-hidden shadow-sm grid md:grid-cols-2">
+        <img src="img/cards_clean.jpg" alt="Thank-you cards and invitations designed for clients, including birthday and wedding invitations" class="w-full h-72 md:h-full object-cover">
+        <div class="p-8 sm:p-10 flex flex-col justify-center">
+          <p class="text-xs font-bold tracking-wide text-coral mb-2">LOGOS · THANK-YOU CARDS · INVITATIONS</p>
+          <h3 class="font-serif text-2xl text-ink mb-3">Beyond the book launch</h3>
+          <p class="text-inksoft leading-relaxed">Logos, business thank-you cards, birthday invitations, and wedding stationery — the same care and polish, applied to whatever your business or milestone calls for.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============ TESTIMONIALS ============ -->
+<section id="testimonials" class="bg-cream">
+  <div class="max-w-6xl mx-auto px-6 lg:px-10 py-20 lg:py-28">
+    <div class="max-w-2xl mb-14">
+      <p class="chapter-label mb-3">Chapter Five</p>
+      <h2 class="font-serif text-3xl sm:text-4xl text-ink font-medium">Kind words from author friends</h2>
+    </div>
+
+    <div class="grid sm:grid-cols-2 gap-6">
+
+      <figure class="bg-paper rounded-3xl p-8 border border-blush">
+        <svg width="30" height="24" viewBox="0 0 30 24" fill="#EABBAA" aria-hidden="true"><path d="M0 24V14.4C0 6.4 5.4 1 12.6 0l1.2 3.6C9 5 6.6 8 6.6 12h6v12H0zm16.2 0V14.4C16.2 6.4 21.6 1 28.8 0L30 3.6C25.2 5 22.8 8 22.8 12h6v12H16.2z"/></svg>
+        <blockquote class="text-inksoft mt-4 leading-relaxed">Tine is quick and does amazing work. My portfolio design is incredible. I definitely recommend her service and will use her again in the future.</blockquote>
+        <figcaption class="mt-4 font-bold text-ink">Debbie Allens <span class="font-normal text-inksoft">— Debbie Q Virtual Assistance</span></figcaption>
+      </figure>
+
+      <figure class="bg-paper rounded-3xl p-8 border border-blush">
+        <svg width="30" height="24" viewBox="0 0 30 24" fill="#EABBAA" aria-hidden="true"><path d="M0 24V14.4C0 6.4 5.4 1 12.6 0l1.2 3.6C9 5 6.6 8 6.6 12h6v12H0zm16.2 0V14.4C16.2 6.4 21.6 1 28.8 0L30 3.6C25.2 5 22.8 8 22.8 12h6v12H16.2z"/></svg>
+        <blockquote class="text-inksoft mt-4 leading-relaxed">Thank you, Tine! Your graphics are so perfect, I love them. I've received several DMs complimenting the Instagram feed, saying how pretty it is — that's all you!</blockquote>
+        <figcaption class="mt-4 font-bold text-ink">Jackie Denewitt <span class="font-normal text-inksoft">— Sun on Your Shoulders</span></figcaption>
+      </figure>
+
+      <figure class="bg-paper rounded-3xl p-8 border border-blush">
+        <svg width="30" height="24" viewBox="0 0 30 24" fill="#EABBAA" aria-hidden="true"><path d="M0 24V14.4C0 6.4 5.4 1 12.6 0l1.2 3.6C9 5 6.6 8 6.6 12h6v12H0zm16.2 0V14.4C16.2 6.4 21.6 1 28.8 0L30 3.6C25.2 5 22.8 8 22.8 12h6v12H16.2z"/></svg>
+        <blockquote class="text-inksoft mt-4 leading-relaxed">I super love her design. She's easy to work with — I just told her the elements I wanted and she came up with a very pretty cover page. Highly recommended!</blockquote>
+        <figcaption class="mt-4 font-bold text-ink">Christine Levine <span class="font-normal text-inksoft">— Founder, Axury Virtual Assistance</span></figcaption>
+      </figure>
+
+      <figure class="bg-paper rounded-3xl p-8 border border-blush">
+        <svg width="30" height="24" viewBox="0 0 30 24" fill="#EABBAA" aria-hidden="true"><path d="M0 24V14.4C0 6.4 5.4 1 12.6 0l1.2 3.6C9 5 6.6 8 6.6 12h6v12H0zm16.2 0V14.4C16.2 6.4 21.6 1 28.8 0L30 3.6C25.2 5 22.8 8 22.8 12h6v12H16.2z"/></svg>
+        <blockquote class="text-inksoft mt-4 leading-relaxed">Working with Tine took so much off my plate. She's organized, easy to communicate with, and genuinely cares about getting the details right.</blockquote>
+        <figcaption class="mt-4 font-bold text-ink">Lana <span class="font-normal text-inksoft">— ReBalance Kinetics</span></figcaption>
+      </figure>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============ CONTACT / CTA ============ -->
+<section id="contact" class="bg-ink text-cream relative overflow-hidden">
+  <div class="max-w-6xl mx-auto px-6 lg:px-10 py-20 lg:py-28 grid lg:grid-cols-2 gap-14">
+
+    <div>
+      <p class="font-script text-3xl text-gold mb-2">The next chapter</p>
+      <h2 class="font-serif text-3xl sm:text-4xl font-medium mb-6">Ready to give your book<br class="hidden sm:block"> the launch it deserves?</h2>
+      <p class="text-cream/80 leading-relaxed max-w-md mb-8">Let's hop on a free, no-pressure discovery call and talk through where you are, where you want to be, and how I can help you get there.</p>
+      <a href="mailto:kpancho.santos@gmail.com?subject=Let's%20talk%20about%20my%20book%20launch" class="inline-flex items-center gap-2 bg-coral hover:bg-gold text-white hover:text-ink font-bold px-7 py-3.5 rounded-full transition-colors focus-ring">
+        Book a Free Discovery Call
+      </a>
+    </div>
+
+    <div class="space-y-6">
+      <a href="mailto:kpancho.santos@gmail.com" class="flex items-center gap-4 group focus-ring rounded-xl p-2 -m-2">
+        <span class="w-11 h-11 rounded-full bg-white/10 flex items-center justify-center shrink-0">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#FCF6F0" stroke-width="1.6"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg>
+        </span>
+        <span class="group-hover:text-gold transition-colors">kpancho.santos@gmail.com</span>
+      </a>
+
+      <a href="https://www.facebook.com/skillsandsassytin/" target="_blank" rel="noopener" class="flex items-center gap-4 group focus-ring rounded-xl p-2 -m-2">
+        <span class="w-11 h-11 rounded-full bg-white/10 flex items-center justify-center shrink-0">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="#FCF6F0"><path d="M22 12a10 10 0 10-11.6 9.9v-7H7.9V12h2.5V9.8c0-2.5 1.5-3.9 3.8-3.9 1.1 0 2.2.2 2.2.2v2.4h-1.2c-1.2 0-1.6.8-1.6 1.6V12h2.8l-.4 2.9h-2.4v7A10 10 0 0022 12z"/></svg>
+        </span>
+        <span class="group-hover:text-gold transition-colors">facebook.com/skillsandsassytin</span>
+      </a>
+
+      <a href="https://instagram.com/skills.sassytin" target="_blank" rel="noopener" class="flex items-center gap-4 group focus-ring rounded-xl p-2 -m-2">
+        <span class="w-11 h-11 rounded-full bg-white/10 flex items-center justify-center shrink-0">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#FCF6F0" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="1"/></svg>
+        </span>
+        <span class="group-hover:text-gold transition-colors">@skills.sassytin</span>
+      </a>
+
+      <div class="flex items-center gap-4">
+        <span class="w-11 h-11 rounded-full bg-white/10 flex items-center justify-center shrink-0">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#FCF6F0" stroke-width="1.6"><path d="M12 21s-7-6.1-7-11a7 7 0 0114 0c0 4.9-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg>
+        </span>
+        <span>Manila, Philippines</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="border-t border-white/10">
+    <div class="max-w-6xl mx-auto px-6 lg:px-10 py-6 flex flex-col sm:flex-row items-center justify-between gap-3 text-sm text-cream/60">
+      <p>&copy; <span id="year"></span> Kristine Pancho Virtual Assistance. Positivity, Confidence, and Persistence.</p>
+      <p class="font-script text-lg text-cream/80">Let's make it happen!</p>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+
+</body>
+</html>
