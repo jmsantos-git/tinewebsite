@@ -335,7 +335,7 @@
 <section id="portfolio" class="bg-coral/10"> 
   <div class="max-w-6xl mx-auto px-6 lg:px-10 py-20 lg:py-28">
     <div class="max-w-2xl mb-14">
-      <p class="chapter-label mb-3">Recent Launches & Projects</p>
+      <p class="chapter-label mb-3">Current, Recent Launches & Projects</p>
       <h2 class="font-serif text-3xl sm:text-4xl text-ink font-medium">Stories & Brands Brought to Life</h2>
       <p class="mt-4 text-inksoft leading-relaxed">A few of the launches, campaigns, and brands I've had the joy of working on.</p>
     </div>
@@ -344,34 +344,203 @@
 
       <!--Additional Design Start-->
 <!-- THREE-COLUMN PORTFOLIO GRID CONTAINER -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-7xl mx-auto px-4">
 
-
-  <!-- Carousel Track -->
-<div class="relative max-w-7xl mx-auto px-4 min-w-0">
-
-  <!-- Carousel Track -->
-  <div id="portfolio-track" class="flex gap-4 sm:gap-6 overflow-x-auto scroll-smooth snap-x snap-mandatory pb-4 no-scrollbar min-w-0 px-[9%] sm:px-0 scroll-p-0">
-
-    <!-- CARD 1: Bao Bao The Baby Panda -->
-    <div class="portfolio-card group relative bg-paper rounded-2xl overflow-hidden border-2 border-solid border-coral/20 hover:border-coral/50 shadow-sm hover:shadow-md transition-all duration-300 flex flex-col justify-between shrink-0 snap-center sm:snap-start w-[82vw] sm:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)]">
-      <div>
-        <div class="relative aspect-[16/10] overflow-hidden bg-[#e8f0e6]">
-          <img src="img/BaoBao_AmericaBound.png" alt="Bao Bao The Baby Panda" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
-          <span class="absolute top-2.5 left-2.5 bg-white/90 backdrop-blur-sm text-ink text-[10px] font-bold px-2 py-0.5 rounded-full shadow-2xs flex items-center gap-1">🎨 Full Branding</span>
-        </div>
-        <div class="p-4 sm:p-5">
-          <div class="flex flex-wrap gap-1 mb-2.5">
-            <span class="text-[9px] font-bold bg-sky-100 text-sky-800 px-2 py-0.5 rounded-full">Social Media</span>
-            <span class="text-[9px] font-bold bg-pink-100 text-pink-700 px-2 py-0.5 rounded-full">Book Launch</span>
-            <span class="text-[9px] font-bold bg-amber-100 text-amber-800 px-2 py-0.5 rounded-full">Website</span>
-            <span class="text-[9px] font-bold bg-emerald-100 text-emerald-800 px-2 py-0.5 rounded-full">Trailer</span>
-          </div>
-          <h3 class="font-serif text-lg text-ink font-semibold group-hover:text-coral transition-colors line-clamp-2 mb-0.5">Book Series: Bao Bao The Baby Panda, America Bound</h3>
-          <p class="text-[11px] font-medium text-coral/80 mb-2">Author: Lillian S. Pagano</p>
-          <p class="text-xs text-inksoft leading-relaxed line-clamp-3">A complete suite of arrival announcements, interactive social media highlights, and a captivating book trailer.</p>
-        </div>
+  <!-- CARD 1 -->
+  <div class="group relative bg-paper rounded-2xl overflow-hidden border-2 border-dashed border-coral/20 hover:border-coral/50 shadow-sm hover:shadow-md transition-all duration-300 flex flex-col justify-between">
+    <div>
+      <div class="relative aspect-[16/10] overflow-hidden bg-[#e8f0e6]">
+        <img 
+          src="img/BaoBao_AmericaBound.png" 
+          alt="Bao Bao The Baby Panda" 
+          class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+        >
+        <span class="absolute top-2.5 left-2.5 bg-white/90 backdrop-blur-sm text-ink text-[10px] font-bold px-2 py-0.5 rounded-full shadow-2xs flex items-center gap-1">
+          ✨ Featured Launch
+        </span>
       </div>
-      <div class="px-4 pb-4 pt-2 border-t border-ink/5 flex flex-wrap gap-1 items-center">
+
+      <div class="p-4 sm:p-5">
+        <div class="flex flex-wrap gap-1 mb-2.5">
+          <span class="text-[9px] font-bold bg-sky-100 text-sky-800 px-2 py-0.5 rounded-full">Social Media</span>
+          <span class="text-[9px] font-bold bg-pink-100 text-pink-700 px-2 py-0.5 rounded-full">Book Launch</span>
+          <span class="text-[9px] font-bold bg-amber-100 text-amber-800 px-2 py-0.5 rounded-full">Website</span>
+          <span class="text-[9px] font-bold bg-emerald-100 text-emerald-800 px-2 py-0.5 rounded-full">Trailer</span>
+        </div>
+
+        <h3 class="font-serif text-lg text-ink font-semibold group-hover:text-coral transition-colors line-clamp-2 mb-0.5">
+            Book Series: Bao Bao The Baby Panda, America Bound
+        </h3>
+        <p class="text-[11px] font-medium text-coral/80 mb-2">Author: Lillian S. Pagano</p>
+        
+        <p class="text-xs text-inksoft leading-relaxed line-clamp-3">
+          A complete suite of arrival announcements, interactive social media highlights, and a captivating book trailer.
+        </p>
+      </div>
+    </div>
+
+    <!-- Links -->
+    <div class="px-4 pb-4 pt-2 border-t border-ink/5 flex flex-wrap gap-1 items-center">
+      <a href="#" target="_blank" class="inline-flex items-center gap-1 text-[10px] font-semibold text-ink bg-white hover:bg-coral hover:text-white border border-ink/10 px-2 py-1 rounded-md transition-all shadow-2xs">
+        <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"></path></svg>
+        Website
+      </a>
+      <a href="#" target="_blank" class="inline-flex items-center gap-1 text-[10px] font-semibold text-ink bg-white hover:bg-coral hover:text-white border border-ink/10 px-2 py-1 rounded-md transition-all shadow-2xs">
+        <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+        Trailer
+      </a>
+      <a href="#" target="_blank" class="inline-flex items-center gap-1 text-[10px] font-semibold text-ink bg-white hover:bg-coral hover:text-white border border-ink/10 px-2 py-1 rounded-md transition-all shadow-2xs">
+        <svg class="w-3 h-3" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+        Facebook
+      </a>
+    </div>
+  </div>
+
+  <!-- Tommy's Red Tailed Hawk-Laura Strachan -->
+  <div class="group relative bg-paper rounded-2xl overflow-hidden border-2 border-dashed border-coral/20 hover:border-coral/50 shadow-sm hover:shadow-md transition-all duration-300 flex flex-col justify-between">
+    <div>
+      <div class="relative aspect-[16/10] overflow-hidden bg-[#fbf0e6]">
+        <img 
+          src="img/TommyRedTailedHawk.png" 
+          alt="Tommy's Red Tailed Hawk" 
+          class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+        >
+        <span class="absolute top-2.5 left-2.5 bg-white/90 backdrop-blur-sm text-ink text-[10px] font-bold px-2 py-0.5 rounded-full shadow-2xs flex items-center gap-1">
+          🎨 Full Branding
+        </span>
+      </div>
+
+      <div class="p-4 sm:p-5">
+        <div class="flex flex-wrap gap-1 mb-2.5">
+          <span class="text-[9px] font-bold bg-sky-100 text-sky-800 px-2 py-0.5 rounded-full">Social Media</span>
+          <span class="text-[9px] font-bold bg-pink-100 text-pink-700 px-2 py-0.5 rounded-full">Book Launch</span>
+          <span class="text-[9px] font-bold bg-amber-100 text-amber-800 px-2 py-0.5 rounded-full">Website</span>
+          <span class="text-[9px] font-bold bg-emerald-100 text-emerald-800 px-2 py-0.5 rounded-full">Trailer</span>
+        </div>
+
+        <h3 class="font-serif text-lg text-ink font-semibold group-hover:text-coral transition-colors line-clamp-2 mb-0.5">
+            Third Book: Tommy's Red Tailed Hawk
+        </h3>
+        <p class="text-[11px] font-medium text-coral/80 mb-2">Author: Laura Strachan</p>
+        
+        <p class="text-xs text-inksoft leading-relaxed line-clamp-3">
+          A full suite of custom web updates, engaging social media graphics, and a feature book trailer designed to welcome young readers into Tommy’s world.
+        </p>
+      </div>
+    </div>
+
+    <!-- Links -->
+   <div class="px-4 pb-4 pt-2 border-t border-ink/5 flex flex-wrap gap-1 items-center">
+      <a href="#" target="_blank" class="inline-flex items-center gap-1 text-[10px] font-semibold text-ink bg-white hover:bg-coral hover:text-white border border-ink/10 px-2 py-1 rounded-md transition-all shadow-2xs">
+        <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"></path></svg>
+        Website
+      </a>
+      <a href="#" target="_blank" class="inline-flex items-center gap-1 text-[10px] font-semibold text-ink bg-white hover:bg-coral hover:text-white border border-ink/10 px-2 py-1 rounded-md transition-all shadow-2xs">
+        <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+        Trailer
+      </a>
+      <a href="#" target="_blank" class="inline-flex items-center gap-1 text-[10px] font-semibold text-ink bg-white hover:bg-coral hover:text-white border border-ink/10 px-2 py-1 rounded-md transition-all shadow-2xs">
+        <svg class="w-3 h-3" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+        Facebook
+      </a>
+    </div>
+  </div>
+  <!-- The Angry Red Troll - Cathy Driskell -->
+  <div class="group relative bg-paper rounded-2xl overflow-hidden border-2 border-dashed border-coral/20 hover:border-coral/50 shadow-sm hover:shadow-md transition-all duration-300 flex flex-col justify-between">
+    <div>
+      <div class="relative aspect-[16/10] overflow-hidden bg-[#eaf2f8]">
+        <img 
+          src="img/TheAngryRedTroll.png" 
+          alt="Children's Book Website Design" 
+          class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+        >
+        <span class="absolute top-2.5 left-2.5 bg-white/90 backdrop-blur-sm text-ink text-[10px] font-bold px-2 py-0.5 rounded-full shadow-2xs flex items-center gap-1">
+          💻 Website 
+        </span>
+      </div>
+
+      <div class="p-4 sm:p-5">
+        <div class="flex flex-wrap gap-1 mb-2.5">
+          <span class="text-[9px] font-bold bg-sky-100 text-sky-800 px-2 py-0.5 rounded-full">Social Media</span>
+          <span class="text-[9px] font-bold bg-pink-100 text-pink-700 px-2 py-0.5 rounded-full">Book Launch</span>
+          <span class="text-[9px] font-bold bg-amber-100 text-amber-800 px-2 py-0.5 rounded-full">Website</span>
+        </div>
+
+        <h3 class="font-serif text-lg text-ink font-semibold group-hover:text-coral transition-colors line-clamp-1 mb-0.5">
+          The Angry Red Troll
+        </h3>
+        <p class="text-[11px] font-medium text-coral/80 mb-2">Author: Cathy Driskell</p>
+        
+        <p class="text-xs text-inksoft leading-relaxed line-clamp-3">
+          Custom interactive site design featuring online ordering links, press kit assets, and reader activity sheets.
+        </p>
+      </div>
+    </div>
+
+    <!-- Links -->
+    <div class="px-4 pb-4 pt-2 border-t border-ink/5 flex flex-wrap gap-1 items-center">
+      <a href="#" target="_blank" class="inline-flex items-center gap-1 text-[10px] font-semibold text-ink bg-white hover:bg-coral hover:text-white border border-ink/10 px-2 py-1 rounded-md transition-all shadow-2xs">
+        <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"></path></svg>
+        Website
+      </a>
+      <a href="#" target="_blank" class="inline-flex items-center gap-1 text-[10px] font-semibold text-ink bg-white hover:bg-coral hover:text-white border border-ink/10 px-2 py-1 rounded-md transition-all shadow-2xs">
+        <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+        Trailer
+      </a>
+      <a href="#" target="_blank" class="inline-flex items-center gap-1 text-[10px] font-semibold text-ink bg-white hover:bg-coral hover:text-white border border-ink/10 px-2 py-1 rounded-md transition-all shadow-2xs">
+        <svg class="w-3 h-3" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+        Facebook
+      </a>
+    </div>
+  </div>
+
+</div>
+      <!--Additional Design End-->
+      <!---------------------------->
+
+      <!--Horizontal design Start-->
+
+<!-- TWO-COLUMN HORIZONTAL PORTFOLIO GRID CONTAINER -->
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-7xl mx-auto px-4">
+
+  <!-- CARD 1: BAO BAO THE BABY PANDA -->
+   <!--<div class="group relative bg-paper rounded-2xl overflow-hidden border-2 border-dashed border-coral/20 hover:border-coral/50 shadow-sm hover:shadow-md transition-all duration-300 grid grid-cols-1 sm:grid-cols-12 items-stretch"> -->
+    <div class="group relative bg-paper rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-all duration-300 grid grid-cols-1 sm:grid-cols-12 items-stretch">
+    <!-- LEFT COLUMN: 1024x1280 PORTRAIT BOOK MOCKUP (5/12 cols) -->
+    <div class="sm:col-span-5 relative aspect-[4/5] bg-[#f8f6f0] p-4 flex items-center justify-center overflow-hidden">
+      <img 
+        src="img/BaoBao_AmericaBound_BookMockup.png" 
+        alt="Bao Bao The Baby Panda" 
+        class="w-full h-full object-contain drop-shadow-md group-hover:scale-105 transition-transform duration-500"
+      >
+      <span class="absolute top-2.5 left-2.5 bg-white/90 backdrop-blur-sm text-ink text-[10px] font-bold px-2 py-0.5 rounded-full shadow-2xs flex items-center gap-1">
+        ✨ Featured Launch
+      </span>
+    </div>
+
+    <!-- RIGHT COLUMN: DETAILS & LINKS (7/12 cols) -->
+    <div class="sm:col-span-7 p-5 flex flex-col justify-between">
+      <div>
+        <!-- Category Tags -->
+        <div class="flex flex-wrap gap-1 mb-2.5">
+          <span class="text-[9px] font-bold bg-sky-100 text-sky-800 px-2 py-0.5 rounded-full">Social Media</span>
+          <span class="text-[9px] font-bold bg-pink-100 text-pink-700 px-2 py-0.5 rounded-full">Book Launch</span>
+          <span class="text-[9px] font-bold bg-amber-100 text-amber-800 px-2 py-0.5 rounded-full">Website</span>
+          <span class="text-[9px] font-bold bg-emerald-100 text-emerald-800 px-2 py-0.5 rounded-full">Trailer</span>
+        </div>
+
+        <h3 class="font-serif text-lg text-ink font-semibold group-hover:text-coral transition-colors line-clamp-2 mb-0.5">
+          Bao Bao The Baby Panda, America Bound
+        </h3>
+        <p class="text-[11px] font-medium text-coral/80 mb-2">Author: Lillian S. Pagano</p>
+        
+        <p class="text-xs text-inksoft leading-relaxed line-clamp-3">
+          A complete suite of arrival announcements, interactive social media highlights, and a captivating book trailer.
+        </p>
+      </div>
+
+      <!-- Action Links -->
+      <div class="pt-3 mt-3 border-t border-ink/5 flex flex-wrap gap-1 items-center">
         <a href="#" target="_blank" class="inline-flex items-center gap-1 text-[10px] font-semibold text-ink bg-white hover:bg-coral hover:text-white border border-ink/10 px-2 py-1 rounded-md transition-all shadow-2xs">
           <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"></path></svg>
           Website
@@ -379,101 +548,6 @@
         <a href="#" target="_blank" class="inline-flex items-center gap-1 text-[10px] font-semibold text-ink bg-white hover:bg-coral hover:text-white border border-ink/10 px-2 py-1 rounded-md transition-all shadow-2xs">
           <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
           Trailer
-        </a>
-        <a href="#" target="_blank" class="inline-flex items-center gap-1 text-[10px] font-semibold text-ink bg-white hover:bg-coral hover:text-white border border-ink/10 px-2 py-1 rounded-md transition-all shadow-2xs">
-          <svg class="w-3 h-3" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
-          Facebook
-        </a>
-      </div>
-    </div>
-
-    <!-- CARD 2: Tommy's Red Tailed Hawk -->
-    <div class="portfolio-card group relative bg-paper rounded-2xl overflow-hidden border-2 border-solid border-coral/20 hover:border-coral/50 shadow-sm hover:shadow-md transition-all duration-300 flex flex-col justify-between shrink-0 snap-center sm:snap-start w-[82vw] sm:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)]">
-      <div>
-        <div class="relative aspect-[16/10] overflow-hidden bg-[#fbf0e6]">
-          <img src="img/TommyRedTailedHawk.png" alt="Tommy's Red Tailed Hawk" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
-          <span class="absolute top-2.5 left-2.5 bg-white/90 backdrop-blur-sm text-ink text-[10px] font-bold px-2 py-0.5 rounded-full shadow-2xs flex items-center gap-1">✨ Featured Launch</span>
-        </div>
-        <div class="p-4 sm:p-5">
-          <div class="flex flex-wrap gap-1 mb-2.5">
-            <span class="text-[9px] font-bold bg-sky-100 text-sky-800 px-2 py-0.5 rounded-full">Social Media</span>
-            <span class="text-[9px] font-bold bg-pink-100 text-pink-700 px-2 py-0.5 rounded-full">Book Launch</span>
-            <span class="text-[9px] font-bold bg-amber-100 text-amber-800 px-2 py-0.5 rounded-full">Website</span>
-            <span class="text-[9px] font-bold bg-emerald-100 text-emerald-800 px-2 py-0.5 rounded-full">Trailer</span>
-          </div>
-          <h3 class="font-serif text-lg text-ink font-semibold group-hover:text-coral transition-colors line-clamp-2 mb-0.5">Third Book: Tommy's Red Tailed Hawk</h3>
-          <p class="text-[11px] font-medium text-coral/80 mb-2">Author: Laura Strachan</p>
-          <p class="text-xs text-inksoft leading-relaxed line-clamp-3">A full suite of custom web updates, engaging social media graphics, and a feature book trailer designed to welcome young readers into Tommy's world.</p>
-        </div>
-      </div>
-      <div class="px-4 pb-4 pt-2 border-t border-ink/5 flex flex-wrap gap-1 items-center">
-        <a href="#" target="_blank" class="inline-flex items-center gap-1 text-[10px] font-semibold text-ink bg-white hover:bg-coral hover:text-white border border-ink/10 px-2 py-1 rounded-md transition-all shadow-2xs">
-          <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"></path></svg>
-          Website
-        </a>
-        <a href="#" target="_blank" class="inline-flex items-center gap-1 text-[10px] font-semibold text-ink bg-white hover:bg-coral hover:text-white border border-ink/10 px-2 py-1 rounded-md transition-all shadow-2xs">
-          <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-          Trailer
-        </a>
-        <a href="#" target="_blank" class="inline-flex items-center gap-1 text-[10px] font-semibold text-ink bg-white hover:bg-coral hover:text-white border border-ink/10 px-2 py-1 rounded-md transition-all shadow-2xs">
-          <svg class="w-3 h-3" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
-          Facebook
-        </a>
-      </div>
-    </div>
-
-    <!-- CARD 3: The Angry Red Troll -->
-    <div class="portfolio-card group relative bg-paper rounded-2xl overflow-hidden border-2 border-solid border-coral/20 hover:border-coral/50 shadow-sm hover:shadow-md transition-all duration-300 flex flex-col justify-between shrink-0 snap-center sm:snap-start w-[82vw] sm:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)]">
-      <div>
-        <div class="relative aspect-[16/10] overflow-hidden bg-[#eaf2f8]">
-          <img src="img/TheAngryRedTroll.png" alt="Children's Book Website Design" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
-          <span class="absolute top-2.5 left-2.5 bg-white/90 backdrop-blur-sm text-ink text-[10px] font-bold px-2 py-0.5 rounded-full shadow-2xs flex items-center gap-1">💻 Website</span>
-        </div>
-        <div class="p-4 sm:p-5">
-          <div class="flex flex-wrap gap-1 mb-2.5">
-            <span class="text-[9px] font-bold bg-sky-100 text-sky-800 px-2 py-0.5 rounded-full">Social Media</span>
-            <span class="text-[9px] font-bold bg-pink-100 text-pink-700 px-2 py-0.5 rounded-full">Book Launch</span>
-            <span class="text-[9px] font-bold bg-amber-100 text-amber-800 px-2 py-0.5 rounded-full">Website</span>
-          </div>
-          <h3 class="font-serif text-lg text-ink font-semibold group-hover:text-coral transition-colors line-clamp-1 mb-0.5">The Angry Red Troll</h3>
-          <p class="text-[11px] font-medium text-coral/80 mb-2">Author: Cathy Driskell</p>
-          <p class="text-xs text-inksoft leading-relaxed line-clamp-3">Custom interactive site design featuring online ordering links, press kit assets, and reader activity sheets.</p>
-        </div>
-      </div>
-      <div class="px-4 pb-4 pt-2 border-t border-ink/5 flex flex-wrap gap-1 items-center">
-        <a href="#" target="_blank" class="inline-flex items-center gap-1 text-[10px] font-semibold text-ink bg-white hover:bg-coral hover:text-white border border-ink/10 px-2 py-1 rounded-md transition-all shadow-2xs">
-          <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s1.343-9 3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"></path></svg>
-          Website
-        </a>
-        <a href="#" target="_blank" class="inline-flex items-center gap-1 text-[10px] font-semibold text-ink bg-white hover:bg-coral hover:text-white border border-ink/10 px-2 py-1 rounded-md transition-all shadow-2xs">
-          <svg class="w-3 h-3" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
-          Facebook
-        </a>
-      </div>
-    </div>
-
-    <!-- CARD 4: Carmela the Brave -->
-    <div class="portfolio-card group relative bg-paper rounded-2xl overflow-hidden border-2 border-solid border-coral/20 hover:border-coral/50 shadow-sm hover:shadow-md transition-all duration-300 flex flex-col justify-between shrink-0 snap-center sm:snap-start w-[82vw] sm:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)]">
-      <div>
-        <div class="relative aspect-[16/10] overflow-hidden bg-[#eaf2f8]">
-          <img src="img/CamelatheBrave.png" alt="Children's Book Website Design" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
-          <span class="absolute top-2.5 left-2.5 bg-white/90 backdrop-blur-sm text-ink text-[10px] font-bold px-2 py-0.5 rounded-full shadow-2xs flex items-center gap-1">💻 Website</span>
-        </div>
-        <div class="p-4 sm:p-5">
-          <div class="flex flex-wrap gap-1 mb-2.5">
-            <span class="text-[9px] font-bold bg-sky-100 text-sky-800 px-2 py-0.5 rounded-full">Social Media</span>
-            <span class="text-[9px] font-bold bg-pink-100 text-pink-700 px-2 py-0.5 rounded-full">Book Launch</span>
-            <span class="text-[9px] font-bold bg-amber-100 text-amber-800 px-2 py-0.5 rounded-full">Website</span>
-          </div>
-          <h3 class="font-serif text-lg text-ink font-semibold group-hover:text-coral transition-colors line-clamp-1 mb-0.5">Carmela the Brave</h3>
-          <p class="text-[11px] font-medium text-coral/80 mb-2">Author: Gina Marro</p>
-          <p class="text-xs text-inksoft leading-relaxed line-clamp-3">Custom interactive site design featuring online ordering links for Carmela the Brave, press kit assets, reader activity sheets, and social media management.</p>
-        </div>
-      </div>
-      <div class="px-4 pb-4 pt-2 border-t border-ink/5 flex flex-wrap gap-1 items-center">
-        <a href="#" target="_blank" class="inline-flex items-center gap-1 text-[10px] font-semibold text-ink bg-white hover:bg-coral hover:text-white border border-ink/10 px-2 py-1 rounded-md transition-all shadow-2xs">
-          <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"></path></svg>
-          Website
         </a>
         <a href="#" target="_blank" class="inline-flex items-center gap-1 text-[10px] font-semibold text-ink bg-white hover:bg-coral hover:text-white border border-ink/10 px-2 py-1 rounded-md transition-all shadow-2xs">
           <svg class="w-3 h-3" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
@@ -483,120 +557,181 @@
     </div>
 
   </div>
-  <!-- End Track -->
 
-  <!-- Arrows -->
-  <button id="carousel-prev" aria-label="Previous project" class="hidden sm:flex absolute top-[35%] left-0 -translate-y-1/2 -translate-x-1/2 w-11 h-11 items-center justify-center rounded-full bg-cream border-2 border-coral/25 text-coral shadow-[0_2px_10px_rgba(0,0,0,0.08)] hover:bg-coral hover:text-white hover:border-coral transition-all duration-200 z-20">
-    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M15 19l-7-7 7-7"/></svg>
-  </button>
-  <button id="carousel-next" aria-label="Next project" class="hidden sm:flex absolute top-[35%] right-0 -translate-y-1/2 translate-x-1/2 w-11 h-11 items-center justify-center rounded-full bg-cream border-2 border-coral/25 text-coral shadow-[0_2px_10px_rgba(0,0,0,0.08)] hover:bg-coral hover:text-white hover:border-coral transition-all duration-200 z-20">
-    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7"/></svg>
-  </button>
+  <!-- CARD 2: TOMMY'S RED TAILED HAWK -->
+  <div class="group relative bg-paper rounded-2xl overflow-hidden border-2 border-dashed border-coral/20 hover:border-coral/50 shadow-sm hover:shadow-md transition-all duration-300 grid grid-cols-1 sm:grid-cols-12 items-stretch">
+    
+    <!-- LEFT COLUMN: 1024x1280 PORTRAIT BOOK MOCKUP -->
+    <div class="sm:col-span-5 relative aspect-[4/5] bg-[#fbf0e6] p-4 flex items-center justify-center overflow-hidden">
+      <img 
+        src="img/TommyRedTailedHawk.png" 
+        alt="Tommy's Red Tailed Hawk" 
+        class="w-full h-full object-contain drop-shadow-md group-hover:scale-105 transition-transform duration-500"
+      >
+      <span class="absolute top-2.5 left-2.5 bg-white/90 backdrop-blur-sm text-ink text-[10px] font-bold px-2 py-0.5 rounded-full shadow-2xs flex items-center gap-1">
+        🎨 Full Branding
+      </span>
+    </div>
 
-  <!-- Dots -->
-  <div id="carousel-dots" class="flex justify-center items-center gap-2 mt-2"></div>
+    <!-- RIGHT COLUMN: DETAILS & LINKS -->
+    <div class="sm:col-span-7 p-5 flex flex-col justify-between">
+      <div>
+        <div class="flex flex-wrap gap-1 mb-2.5">
+          <span class="text-[9px] font-bold bg-sky-100 text-sky-800 px-2 py-0.5 rounded-full">Social Media</span>
+          <span class="text-[9px] font-bold bg-pink-100 text-pink-700 px-2 py-0.5 rounded-full">Book Launch</span>
+          <span class="text-[9px] font-bold bg-amber-100 text-amber-800 px-2 py-0.5 rounded-full">Website</span>
+          <span class="text-[9px] font-bold bg-emerald-100 text-emerald-800 px-2 py-0.5 rounded-full">Trailer</span>
+        </div>
+
+        <h3 class="font-serif text-lg text-ink font-semibold group-hover:text-coral transition-colors line-clamp-2 mb-0.5">
+          Tommy's Red Tailed Hawk
+        </h3>
+        <p class="text-[11px] font-medium text-coral/80 mb-2">Author: Laura Strachan</p>
+        
+        <p class="text-xs text-inksoft leading-relaxed line-clamp-3">
+          A full suite of custom web updates, engaging social media graphics, and a feature book trailer designed to welcome readers.
+        </p>
+      </div>
+
+      <div class="pt-3 mt-3 border-t border-ink/5 flex flex-wrap gap-1 items-center">
+        <a href="#" target="_blank" class="inline-flex items-center gap-1 text-[10px] font-semibold text-ink bg-white hover:bg-coral hover:text-white border border-ink/10 px-2 py-1 rounded-md transition-all shadow-2xs">
+          <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"></path></svg>
+          Website
+        </a>
+        <a href="#" target="_blank" class="inline-flex items-center gap-1 text-[10px] font-semibold text-ink bg-white hover:bg-coral hover:text-white border border-ink/10 px-2 py-1 rounded-md transition-all shadow-2xs">
+          <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+          Trailer
+        </a>
+        <a href="#" target="_blank" class="inline-flex items-center gap-1 text-[10px] font-semibold text-ink bg-white hover:bg-coral hover:text-white border border-ink/10 px-2 py-1 rounded-md transition-all shadow-2xs">
+          <svg class="w-3 h-3" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+          Facebook
+        </a>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- CARD 3: THE ANGRY RED TROLL -->
+  <div class="group relative bg-paper rounded-2xl overflow-hidden border-2 border-dashed border-coral/20 hover:border-coral/50 shadow-sm hover:shadow-md transition-all duration-300 grid grid-cols-1 sm:grid-cols-12 items-stretch">
+    
+    <!-- LEFT COLUMN: 1024x1280 PORTRAIT BOOK MOCKUP -->
+   <!-- REMOVE p-4, CHANGE object-contain to object-cover -->
+<div class="sm:col-span-5 relative aspect-[4/5] bg-[#faece9] flex items-center justify-center overflow-hidden">
+  <img 
+    src="img/AngryRedTroll_BookMockUp.png" 
+    alt="The Angry Red Troll" 
+    class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+  >
+  <span class="absolute top-2.5 left-2.5 bg-white/90 backdrop-blur-sm text-ink text-[10px] font-bold px-2 py-0.5 rounded-full shadow-2xs flex items-center gap-1 z-10">
+    💻 Website
+  </span>
+</div>
+
+    <!-- RIGHT COLUMN: DETAILS & LINKS -->
+    <div class="sm:col-span-7 p-5 flex flex-col justify-between">
+      <div>
+        <div class="flex flex-wrap gap-1 mb-2.5">
+          <span class="text-[9px] font-bold bg-sky-100 text-sky-800 px-2 py-0.5 rounded-full">Social Media</span>
+          <span class="text-[9px] font-bold bg-pink-100 text-pink-700 px-2 py-0.5 rounded-full">Book Launch</span>
+          <span class="text-[9px] font-bold bg-amber-100 text-amber-800 px-2 py-0.5 rounded-full">Website</span>
+        </div>
+
+        <h3 class="font-serif text-lg text-ink font-semibold group-hover:text-coral transition-colors line-clamp-2 mb-0.5">
+          The Angry Red Troll
+        </h3>
+        <p class="text-[11px] font-medium text-coral/80 mb-2">Author: Cathy Driskell</p>
+        
+        <p class="text-xs text-inksoft leading-relaxed line-clamp-3">
+          Custom interactive site design featuring online ordering links, press kit assets, and reader activity sheets.
+        </p>
+      </div>
+
+      <div class="pt-3 mt-3 border-t border-ink/5 flex flex-wrap gap-1 items-center">
+        <a href="#" target="_blank" class="inline-flex items-center gap-1 text-[10px] font-semibold text-ink bg-white hover:bg-coral hover:text-white border border-ink/10 px-2 py-1 rounded-md transition-all shadow-2xs">
+          <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"></path></svg>
+          Website
+        </a>
+        <a href="#" target="_blank" class="inline-flex items-center gap-1 text-[10px] font-semibold text-ink bg-white hover:bg-coral hover:text-white border border-ink/10 px-2 py-1 rounded-md transition-all shadow-2xs">
+          <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+          Trailer
+        </a>
+        <a href="#" target="_blank" class="inline-flex items-center gap-1 text-[10px] font-semibold text-ink bg-white hover:bg-coral hover:text-white border border-ink/10 px-2 py-1 rounded-md transition-all shadow-2xs">
+          <svg class="w-3 h-3" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+          Facebook
+        </a>
+      </div>
+    </div>
+
+  </div>
 
 </div>
 
-<style>
-  .no-scrollbar::-webkit-scrollbar { display: none; }
-  .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
-</style>
+      <!--horizontal design end-->
 
-<script>
-  (function () {
-    const track = document.getElementById('portfolio-track');
-    const cards = Array.from(track.querySelectorAll('.portfolio-card'));
-    const dotsWrap = document.getElementById('carousel-dots');
-    const prevBtn = document.getElementById('carousel-prev');
-    const nextBtn = document.getElementById('carousel-next');
+<!--3rd Design STart-->
 
-    // Build dots
-    cards.forEach((_, i) => {
-      const dot = document.createElement('button');
-      dot.setAttribute('aria-label', 'Go to project ' + (i + 1));
-      dot.className = 'h-2 rounded-full bg-ink/15 transition-all duration-300 w-2';
-      dot.addEventListener('click', () => scrollToCard(i));
-      dotsWrap.appendChild(dot);
-    });
-    const dots = Array.from(dotsWrap.children);
+<!-- TWO-COLUMN PORTFOLIO GRID -->
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-7xl mx-auto px-4">
 
-    function setActive(index) {
-      dots.forEach((d, i) => {
-        if (i === index) {
-          d.classList.remove('w-2', 'bg-ink/15');
-          d.classList.add('w-5', 'bg-coral');
-        } else {
-          d.classList.remove('w-5', 'bg-coral');
-          d.classList.add('w-2', 'bg-ink/15');
-        }
-      });
-    }
-
-    function getActiveIndex() {
-      const trackRect = track.getBoundingClientRect();
-      const trackCenter = trackRect.left + trackRect.width / 2;
-      let closest = 0;
-      let closestDist = Infinity;
-
-      cards.forEach((card, i) => {
-        const cardRect = card.getBoundingClientRect();
-        const cardCenter = cardRect.left + cardRect.width / 2;
-        const dist = Math.abs(cardCenter - trackCenter);
-        
-        if (dist < closestDist) {
-          closestDist = dist;
-          closest = i;
-        }
-      });
-      return closest;
-    }
-
-    let scrollTimeout;
-    track.addEventListener('scroll', () => {
-      clearTimeout(scrollTimeout);
-      scrollTimeout = setTimeout(() => {
-        setActive(getActiveIndex());
-      }, 100);
-    });
-
-    function scrollToCard(index) {
-      index = Math.max(0, Math.min(cards.length - 1, index));
-      const card = cards[index];
-      
-      let targetScrollLeft;
-      if (window.innerWidth < 640) {
-        targetScrollLeft = card.offsetLeft - (track.clientWidth - card.clientWidth) / 2;
-      } else {
-        targetScrollLeft = card.offsetLeft;
-      }
-
-      track.scrollTo({ left: targetScrollLeft, behavior: 'smooth' });
-      setActive(index);
-    }
-
-    function scrollByDirection(direction) {
-      // Scrolls smoothly by 1 card distance based on actual calculated card width
-      const cardWidth = cards[0].offsetWidth + (window.innerWidth < 640 ? 16 : 24);
-      track.scrollBy({ left: direction * cardWidth, behavior: 'smooth' });
-    }
-
-    prevBtn.addEventListener('click', () => scrollByDirection(-1));
-    nextBtn.addEventListener('click', () => scrollByDirection(1));
-
-    setActive(0);
-  })();
-</script>
-
-  <!-- Carousel Track -->
- 
-
-      <!--Additional Design End-->
+  <!-- CARD 1: BAO BAO -->
+  <div class="card-lift group relative bg-paper rounded-3xl border border-blush overflow-hidden grid grid-cols-1 sm:grid-cols-12 items-stretch">
     
+    <!-- LEFT: FULL-BLEED IMAGE (5 COLS) -->
+    <div class="sm:col-span-5 relative min-h-[240px] sm:min-h-full overflow-hidden">
+      <img 
+        src="img/BaoBao_AmericaBound_BookMockup.png" 
+        alt="Bao Bao The Baby Panda" 
+        class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+      >
+      <span class="absolute top-3 left-3 bg-white/90 backdrop-blur-sm text-ink text-[10px] font-bold px-2.5 py-0.5 rounded-full shadow-2xs flex items-center gap-1 z-10 whitespace-nowrap">
+        ✨ Featured Launch
+      </span>
+    </div>
+
+    <!-- RIGHT: CONTENT AREA (7 COLS) -->
+    <div class="sm:col-span-7 p-5 sm:p-6 flex flex-col justify-between">
+      <div>
+        <!-- Category Tags -->
+        <div class="flex flex-wrap gap-1 mb-3">
+          <span class="text-[9px] font-bold bg-sky-100 text-sky-800 px-2 py-0.5 rounded-full">Social Media</span>
+          <span class="text-[9px] font-bold bg-pink-100 text-pink-700 px-2 py-0.5 rounded-full">Book Launch</span>
+          <span class="text-[9px] font-bold bg-amber-100 text-amber-800 px-2 py-0.5 rounded-full">Website</span>
+          <span class="text-[9px] font-bold bg-emerald-100 text-emerald-800 px-2 py-0.5 rounded-full">Trailer</span>
+        </div>
+
+        <h3 class="font-serif text-xl text-ink font-semibold group-hover:text-coral transition-colors mb-1">
+          Bao Bao The Baby Panda, America Bound
+        </h3>
+        <p class="text-xs font-medium text-coral/80 mb-2">Author: Lillian S. Pagano</p>
+        
+        <p class="text-xs sm:text-sm text-inksoft leading-relaxed">
+          A complete suite of arrival announcements, interactive social media highlights, and a captivating book trailer.
+        </p>
+      </div>
+
+      <!-- Links Footer -->
+      <div class="pt-4 mt-4 border-t border-ink/5 flex flex-wrap gap-1.5 items-center">
+        <a href="#" target="_blank" class="inline-flex items-center gap-1 text-[11px] font-semibold text-ink bg-white hover:bg-coral hover:text-white border border-ink/10 px-2.5 py-1 rounded-lg transition-all shadow-2xs">
+          <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"></path></svg>
+          Website
+        </a>
+        <a href="#" target="_blank" class="inline-flex items-center gap-1 text-[11px] font-semibold text-ink bg-white hover:bg-coral hover:text-white border border-ink/10 px-2.5 py-1 rounded-lg transition-all shadow-2xs">
+          <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+          Trailer
+        </a>
+        <a href="#" target="_blank" class="inline-flex items-center gap-1 text-[11px] font-semibold text-ink bg-white hover:bg-coral hover:text-white border border-ink/10 px-2.5 py-1 rounded-lg transition-all shadow-2xs">
+          <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+          Facebook
+        </a>
+      </div>
+    </div>
+
+  </div>
+
+</div>
 
 
-
-
+<!--3rd design end-->
 
     </div>
   </div>
