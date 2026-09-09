@@ -1,0 +1,709 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tine Pancho — Virtual Assistant for Children's Book Authors</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&family=Caveat:wght@600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --cream:#FDF6EC;
+    --paper:#FBF0DE;
+    --ink:#2A2A2A;
+    --dusk:#2B4C6F;
+    --apricot:#E8A87C;
+    --apricot-deep:#DE8F5B;
+    --sage:#7FA99B;
+    --berry:#D8546B;
+    --line:#E4D9C4;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--cream);
+    color:var(--ink);
+    font-family:'Inter',sans-serif;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3,.serif{font-family:'Fraunces',serif;}
+  .hand{font-family:'Caveat',cursive;}
+  a{color:inherit;text-decoration:none;}
+  .wrap{max-width:1120px;margin:0 auto;padding:0 24px;}
+  .page{display:none;}
+  .page.active{display:block;animation:fadein .4s ease;}
+  @keyframes fadein{from{opacity:0;transform:translateY(6px);}to{opacity:1;transform:translateY(0);}}
+
+  /* NAV */
+  header{
+    position:sticky;top:0;z-index:50;
+    background:rgba(253,246,236,0.92);
+    backdrop-filter:blur(6px);
+    border-bottom:1px solid var(--line);
+  }
+  nav{display:flex;align-items:center;justify-content:space-between;padding:16px 24px;max-width:1120px;margin:0 auto;}
+  .brand{display:flex;align-items:center;gap:10px;font-family:'Fraunces',serif;font-weight:600;font-size:1.15rem;color:var(--dusk);}
+  .brand-mark{width:34px;height:34px;border-radius:50%;background:var(--apricot);display:flex;align-items:center;justify-content:center;color:#fff;font-family:'Fraunces',serif;font-weight:600;font-size:1rem;}
+  .navlinks{display:flex;gap:28px;font-size:0.95rem;}
+  .navlinks button{background:none;border:none;font:inherit;color:var(--ink);cursor:pointer;padding:4px 0;border-bottom:2px solid transparent;}
+  .navlinks button:hover, .navlinks button.current{color:var(--dusk);border-color:var(--apricot);}
+  .nav-cta{background:var(--dusk);color:#fff;padding:10px 20px;border-radius:8px;font-weight:600;font-size:0.9rem;cursor:pointer;border:none;font-family:inherit;}
+  .nav-cta:hover{background:#1f3a56;}
+  @media(max-width:720px){.navlinks{display:none;}}
+
+  /* HERO */
+  .hero{padding:72px 0 40px;}
+  .hero-grid{display:grid;grid-template-columns:1.1fr 0.9fr;gap:48px;align-items:center;}
+  @media(max-width:860px){.hero-grid{grid-template-columns:1fr;}}
+  .eyebrow{color:var(--sage);font-weight:600;font-size:0.95rem;margin-bottom:10px;}
+  .hero h1{font-size:2.9rem;line-height:1.1;font-weight:600;color:var(--dusk);margin:0 0 20px;}
+  @media(max-width:600px){.hero h1{font-size:2.1rem;}}
+  .hero p.sub{font-size:1.1rem;line-height:1.6;color:#4b4b4b;max-width:52ch;margin-bottom:28px;}
+  .btnrow{display:flex;gap:14px;flex-wrap:wrap;}
+  .btn{padding:13px 24px;border-radius:8px;font-weight:600;font-size:0.95rem;cursor:pointer;border:none;font-family:inherit;display:inline-block;}
+  .btn-primary{background:var(--apricot-deep);color:#fff;}
+  .btn-primary:hover{background:#c97a48;}
+  .btn-outline{background:transparent;color:var(--dusk);border:1.5px solid var(--dusk);}
+  .btn-outline:hover{background:var(--dusk);color:#fff;}
+  .hero-visual{position:relative;}
+  .cover-stack{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;}
+  .cover-stack img{width:100%;border-radius:10px;box-shadow:0 10px 26px rgba(43,76,111,0.18);object-fit:cover;aspect-ratio:3/4;}
+  .cover-stack div:nth-child(2){transform:translateY(-18px);}
+
+  .wavy{width:100%;height:44px;display:block;margin:8px 0 0;}
+
+  /* SECTIONS */
+  section{padding:64px 0;}
+  .section-head{max-width:640px;margin-bottom:40px;}
+  .section-head h2{font-size:2rem;color:var(--dusk);font-weight:600;margin:0 0 12px;}
+  .section-head p{color:#555;font-size:1.05rem;line-height:1.6;}
+
+  /* ABOUT */
+  .about-grid{display:grid;grid-template-columns:280px 1fr;gap:48px;align-items:start;}
+  @media(max-width:760px){.about-grid{grid-template-columns:1fr;}}
+  .avatar{width:100%;aspect-ratio:1;border-radius:16px;background:linear-gradient(150deg,var(--apricot),var(--sage));display:flex;align-items:center;justify-content:center;color:#fff;font-family:'Fraunces',serif;font-size:3.2rem;font-weight:600;}
+  .values{display:flex;gap:10px;flex-wrap:wrap;margin-top:20px;}
+  .pill{background:var(--paper);border:1px solid var(--line);padding:6px 14px;border-radius:999px;font-size:0.85rem;color:var(--dusk);font-weight:600;}
+  .about-copy p{line-height:1.7;color:#3d3d3d;margin-bottom:16px;font-size:1.02rem;}
+
+  /* SERVICES */
+  .svc-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;}
+  @media(max-width:900px){.svc-grid{grid-template-columns:repeat(2,1fr);}}
+  @media(max-width:560px){.svc-grid{grid-template-columns:1fr;}}
+  .svc-card{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:26px 22px;}
+  .svc-icon{width:44px;height:44px;border-radius:10px;background:var(--dusk);color:#fff;display:flex;align-items:center;justify-content:center;margin-bottom:16px;font-size:1.2rem;}
+  .svc-card h3{font-size:1.08rem;margin:0 0 8px;color:var(--dusk);}
+  .svc-card ul{margin:0;padding-left:18px;color:#4a4a4a;font-size:0.92rem;line-height:1.7;}
+
+  /* TOOLS STRIP */
+  .tools-strip{background:var(--dusk);padding:36px 0;}
+  .tools-strip .wrap{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:20px;}
+  .tools-strip h4{color:#fff;font-family:'Fraunces',serif;font-weight:600;margin:0;font-size:1.15rem;white-space:nowrap;}
+  .tool-list{display:flex;flex-wrap:wrap;gap:12px;}
+  .tool-chip{background:rgba(255,255,255,0.1);color:#fff;padding:8px 16px;border-radius:999px;font-size:0.88rem;font-weight:500;border:1px solid rgba(255,255,255,0.18);}
+
+  /* PROJECTS (home teaser) */
+  .proj-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;}
+  @media(max-width:900px){.proj-grid{grid-template-columns:repeat(2,1fr);}}
+  @media(max-width:600px){.proj-grid{grid-template-columns:1fr;}}
+  .proj-card{background:#fff;border:1px solid var(--line);border-radius:14px;overflow:hidden;display:flex;flex-direction:column;cursor:pointer;transition:box-shadow .2s ease,transform .2s ease;}
+  .proj-card:hover{box-shadow:0 12px 28px rgba(43,76,111,0.14);transform:translateY(-3px);}
+  .proj-media{position:relative;background:#f1e9d8;aspect-ratio:4/3;overflow:hidden;}
+  .proj-media img{width:100%;height:100%;object-fit:cover;display:block;}
+  .proj-media.cover img{object-fit:contain;background:#f1e9d8;padding:10px;}
+  .browser-bar{display:flex;gap:5px;align-items:center;background:#e7ddc8;padding:6px 10px;}
+  .browser-bar span{width:8px;height:8px;border-radius:50%;background:#c9bb98;}
+  .play-btn{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:rgba(43,76,111,0.28);}
+  .play-btn::after{content:"";width:0;height:0;border-top:12px solid transparent;border-bottom:12px solid transparent;border-left:20px solid #fff;margin-left:4px;}
+  .play-circle{width:56px;height:56px;border-radius:50%;background:rgba(255,255,255,0.25);border:2px solid #fff;display:flex;align-items:center;justify-content:center;}
+  .tag{position:absolute;top:10px;left:10px;background:#fff;color:var(--dusk);font-size:0.72rem;font-weight:700;padding:4px 10px;border-radius:999px;letter-spacing:0.02em;}
+  .proj-body{padding:16px 18px 20px;}
+  .proj-body h4{margin:0 0 6px;font-size:1.02rem;color:var(--ink);}
+  .proj-body p{margin:0;color:#666;font-size:0.9rem;line-height:1.5;}
+  .center-link{display:flex;justify-content:center;margin-top:36px;}
+
+  /* TESTIMONIALS */
+  .testi-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:22px;}
+  @media(max-width:760px){.testi-grid{grid-template-columns:1fr;}}
+  .testi-card{background:var(--paper);border-radius:14px;padding:26px;border:1px solid var(--line);}
+  .testi-card p.quote{font-size:1.02rem;line-height:1.6;color:#3d3d3d;margin:0 0 16px;}
+  .testi-name{font-weight:700;color:var(--dusk);font-size:0.92rem;}
+  .testi-role{color:#777;font-size:0.85rem;}
+
+  /* STATS */
+  .stats-bar{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:36px 0;}
+  @media(max-width:700px){.stats-bar{grid-template-columns:repeat(2,1fr);}}
+  .stat{text-align:center;}
+  .stat b{display:block;font-family:'Fraunces',serif;font-size:2.1rem;color:var(--apricot-deep);}
+  .stat span{color:#666;font-size:0.88rem;}
+
+  /* PROCESS */
+  .process-row{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;}
+  @media(max-width:800px){.process-row{grid-template-columns:repeat(2,1fr);}}
+  @media(max-width:520px){.process-row{grid-template-columns:1fr;}}
+  .step{position:relative;padding-top:12px;}
+  .step .num{font-family:'Fraunces',serif;font-size:1rem;color:var(--sage);font-weight:600;}
+  .step h4{margin:8px 0 8px;color:var(--dusk);font-size:1.05rem;}
+  .step p{color:#555;font-size:0.92rem;line-height:1.55;margin:0;}
+
+  /* FAQ */
+  .faq-item{border-bottom:1px solid var(--line);padding:18px 0;}
+  .faq-q{display:flex;justify-content:space-between;align-items:center;cursor:pointer;font-weight:600;color:var(--dusk);font-size:1.02rem;}
+  .faq-a{max-height:0;overflow:hidden;transition:max-height .25s ease;color:#555;font-size:0.95rem;line-height:1.6;}
+  .faq-item.open .faq-a{max-height:200px;padding-top:10px;}
+  .faq-plus{transition:transform .2s ease;}
+  .faq-item.open .faq-plus{transform:rotate(45deg);}
+
+  /* FINAL CTA */
+  .final-cta{background:linear-gradient(135deg,var(--dusk),#1f3a56);color:#fff;border-radius:20px;padding:56px 40px;text-align:center;}
+  .final-cta h2{color:#fff;margin:0 0 14px;font-size:1.9rem;}
+  .final-cta p{color:#d7e2ec;margin:0 0 26px;font-size:1.05rem;}
+
+  footer{background:#20303F;color:#cdd8e0;padding:48px 0 28px;margin-top:20px;}
+  .foot-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:32px;margin-bottom:32px;}
+  @media(max-width:700px){.foot-grid{grid-template-columns:1fr;}}
+  footer h5{color:#fff;font-size:0.95rem;margin:0 0 14px;font-family:'Fraunces',serif;}
+  footer a{color:#cdd8e0;font-size:0.9rem;display:block;margin-bottom:10px;}
+  footer a:hover{color:#fff;}
+  .foot-bottom{border-top:1px solid rgba(255,255,255,0.12);padding-top:20px;font-size:0.8rem;color:#8fa1ae;text-align:center;}
+
+  /* PORTFOLIO PAGE */
+  .filter-row{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:32px;}
+  .filter-btn{background:#fff;border:1px solid var(--line);padding:9px 18px;border-radius:999px;font-size:0.9rem;font-weight:600;cursor:pointer;color:#555;font-family:inherit;}
+  .filter-btn.active{background:var(--dusk);color:#fff;border-color:var(--dusk);}
+  .full-proj-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;}
+  @media(max-width:900px){.full-proj-grid{grid-template-columns:repeat(2,1fr);}}
+  @media(max-width:600px){.full-proj-grid{grid-template-columns:1fr;}}
+  .proj-card.hidden{display:none;}
+  .proj-body .cta-link{display:inline-block;margin-top:10px;font-weight:700;color:var(--apricot-deep);font-size:0.88rem;}
+
+  /* LIGHTBOX */
+  .lightbox{position:fixed;inset:0;background:rgba(20,20,20,0.82);display:none;align-items:center;justify-content:center;z-index:100;padding:20px;}
+  .lightbox.open{display:flex;}
+  .lightbox-inner{width:100%;max-width:840px;aspect-ratio:16/9;position:relative;}
+  .lightbox-inner iframe{width:100%;height:100%;border:0;border-radius:10px;}
+  .lightbox-close{position:absolute;top:-40px;right:0;color:#fff;font-size:1.6rem;cursor:pointer;background:none;border:none;}
+
+  /* CONTACT PAGE */
+  .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start;}
+  @media(max-width:800px){.contact-grid{grid-template-columns:1fr;}}
+  .contact-info .item{display:flex;gap:14px;margin-bottom:22px;}
+  .contact-info .ico{width:40px;height:40px;border-radius:10px;background:var(--paper);border:1px solid var(--line);display:flex;align-items:center;justify-content:center;flex-shrink:0;color:var(--dusk);}
+  .contact-info .item h5{margin:0 0 4px;font-size:0.95rem;color:var(--dusk);}
+  .contact-info .item p, .contact-info .item a{margin:0;color:#555;font-size:0.92rem;}
+  .booking-box{background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:30px;}
+  .booking-box h3{margin:0 0 8px;color:var(--dusk);}
+  .booking-box p{color:#555;font-size:0.92rem;margin:0 0 20px;line-height:1.6;}
+  .field{margin-bottom:16px;}
+  .field label{display:block;font-size:0.85rem;font-weight:600;color:var(--dusk);margin-bottom:6px;}
+  .field input, .field select, .field textarea{width:100%;padding:11px 13px;border:1px solid var(--line);border-radius:8px;font-family:inherit;font-size:0.92rem;background:#fff;}
+  .field textarea{resize:vertical;min-height:90px;}
+</style>
+</head>
+<body>
+
+<header>
+  <nav>
+    <div class="brand"><div class="brand-mark">T</div> Tine Pancho</div>
+    <div class="navlinks">
+      <button onclick="goPage('home')" class="navbtn" data-page="home">Home</button>
+      <button onclick="goPage('portfolio')" class="navbtn" data-page="portfolio">Portfolio</button>
+      <button onclick="goPage('contact')" class="navbtn" data-page="contact">Contact</button>
+    </div>
+    <button class="nav-cta" onclick="goPage('contact')">Book a Free Call</button>
+  </nav>
+</header>
+
+<!-- ============ HOME PAGE ============ -->
+<div class="page active" id="page-home">
+
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <div class="eyebrow">Virtual Assistant &amp; Social Media Manager for Children's Book Authors</div>
+        <h1>Your story deserves a launch as magical as the book itself.</h1>
+        <p class="sub">I help children's book authors bring their stories to life online — through social media that builds real fans, author websites that convert readers into buyers, and book trailers that make people stop scrolling.</p>
+        <div class="btnrow">
+          <button class="btn btn-primary" onclick="goPage('contact')">Book a Free Discovery Call</button>
+          <button class="btn btn-outline" onclick="goPage('portfolio')">View Portfolio</button>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <div class="cover-stack">
+          <div style="aspect-ratio:3/4;border-radius:10px;box-shadow:0 10px 26px rgba(43,76,111,0.18);background:linear-gradient(160deg,#E8A87C,#DE8F5B);display:flex;align-items:center;justify-content:center;padding:12px;"><span class="hand" style="color:#fff;font-size:1.4rem;text-align:center;">Adventures of Rocky</span></div>
+          <div style="aspect-ratio:3/4;border-radius:10px;box-shadow:0 10px 26px rgba(43,76,111,0.18);background:linear-gradient(160deg,#7FA99B,#5f8b7c);display:flex;align-items:center;justify-content:center;padding:12px;transform:translateY(-18px);"><span class="hand" style="color:#fff;font-size:1.4rem;text-align:center;">Pickles the Mermaid</span></div>
+          <div style="aspect-ratio:3/4;border-radius:10px;box-shadow:0 10px 26px rgba(43,76,111,0.18);background:linear-gradient(160deg,#2B4C6F,#1f3a56);display:flex;align-items:center;justify-content:center;padding:12px;"><span class="hand" style="color:#fff;font-size:1.4rem;text-align:center;">Tommy's Red-Tailed Hawk</span></div>
+        </div>
+      </div>
+    </div>
+    <svg class="wavy" viewBox="0 0 1200 40" preserveAspectRatio="none"><path d="M0 20 Q 50 0 100 20 T 200 20 T 300 20 T 400 20 T 500 20 T 600 20 T 700 20 T 800 20 T 900 20 T 1000 20 T 1100 20 T 1200 20" fill="none" stroke="#E8A87C" stroke-width="2.5"/></svg>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="wrap about-grid">
+      <div>
+        <div class="avatar">T</div>
+        <div class="values">
+          <span class="pill">Positivity</span>
+          <span class="pill">Confidence</span>
+          <span class="pill">Persistence</span>
+        </div>
+      </div>
+      <div class="about-copy">
+        <h2 class="serif" style="color:var(--dusk);font-size:1.7rem;margin-bottom:16px;">Hi, I'm Tine — let's make it happen.</h2>
+        <p>I'm a wife, a mom of two adorable boys, and a Mass Communication graduate with almost 15 years of combined experience in sales, marketing, administrative support, and graphic design.</p>
+        <p>I found my niche helping children's book authors — creative, big-hearted entrepreneurs who've poured years into a story and now need someone to help the world find it. That's where I come in: the launch strategy, the social content, the website, the little details that turn a finished manuscript into a book people actually discover and buy.</p>
+        <p>My work is built on three things I hold onto every single day: positivity, confidence, and persistence. Partner with me, and let's make it happen.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section id="services" style="background:var(--paper);">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>Specialized support for children's book authors</h2>
+        <p>Four ways I help you go from "book is done" to "book has real readers."</p>
+      </div>
+      <div class="svc-grid">
+        <div class="svc-card">
+          <div class="svc-icon">✎</div>
+          <h3>Social Media Management</h3>
+          <ul>
+            <li>Content calendars &amp; captions</li>
+            <li>Launch strategy</li>
+            <li>Amazon review campaigns</li>
+            <li>Giveaway &amp; promo graphics</li>
+          </ul>
+        </div>
+        <div class="svc-card">
+          <div class="svc-icon">◔</div>
+          <h3>Author Websites</h3>
+          <ul>
+            <li>Custom layout &amp; design</li>
+            <li>Landing pages</li>
+            <li>Lead capture (free coloring sheets, etc.)</li>
+          </ul>
+        </div>
+        <div class="svc-card">
+          <div class="svc-icon">▶</div>
+          <h3>Book Trailers &amp; Video</h3>
+          <ul>
+            <li>Video editing</li>
+            <li>Animated teasers</li>
+            <li>Launch reels for IG/TikTok</li>
+          </ul>
+        </div>
+        <div class="svc-card">
+          <div class="svc-icon">✦</div>
+          <h3>Graphic &amp; Admin Support</h3>
+          <ul>
+            <li>Brand boards &amp; logos</li>
+            <li>Lead magnets &amp; thank-you cards</li>
+            <li>Customer service &amp; scheduling</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TOOLS -->
+  <div class="tools-strip">
+    <div class="wrap">
+      <h4>Tools I work in</h4>
+      <div class="tool-list">
+        <span class="tool-chip">Canva Pro</span>
+        <span class="tool-chip">Asana</span>
+        <span class="tool-chip">Meta Business Suite</span>
+        <span class="tool-chip">Wix / WordPress</span>
+        <span class="tool-chip">CapCut</span>
+        <span class="tool-chip">Google Workspace</span>
+        <span class="tool-chip">Calendly</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- LATEST PROJECTS -->
+  <section id="latest-projects">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>Latest projects</h2>
+        <p>A mix of author websites, book trailers, and full launch campaigns I've recently worked on.</p>
+      </div>
+      <div class="proj-grid" id="home-proj-grid"></div>
+      <div class="center-link">
+        <button class="btn btn-outline" onclick="goPage('portfolio')">View All Projects →</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- STATS -->
+  <section style="padding-top:0;">
+    <div class="wrap stats-bar">
+      <div class="stat"><b>15+</b><span>Years of experience</span></div>
+      <div class="stat"><b>10+</b><span>Books &amp; author brands supported</span></div>
+      <div class="stat"><b>4</b><span>Author websites designed or enhanced</span></div>
+      <div class="stat"><b>2</b><span>Book trailers produced</span></div>
+    </div>
+  </section>
+
+  <!-- PROCESS -->
+  <section>
+    <div class="wrap">
+      <div class="section-head">
+        <h2>How we'll work together</h2>
+        <p>A simple, no-pressure process from first hello to launch day.</p>
+      </div>
+      <div class="process-row">
+        <div class="step"><div class="num">1</div><h4>Discovery Call</h4><p>We talk about your book, your goals, and where you need the most support.</p></div>
+        <div class="step"><div class="num">2</div><h4>Simple Proposal</h4><p>You get a clear plan and custom quote — no confusing packages.</p></div>
+        <div class="step"><div class="num">3</div><h4>Onboarding</h4><p>I get access to what I need and start building your calendar, site, or trailer.</p></div>
+        <div class="step"><div class="num">4</div><h4>Launch &amp; Support</h4><p>We launch together, and I stay close for ongoing content and updates.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section style="background:var(--paper);">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>What clients say</h2>
+      </div>
+      <div class="testi-grid">
+        <div class="testi-card">
+          <p class="quote">"Tine is quick and does amazing work. My portfolio design is incredible. I definitely recommend her service and will use her again in the future."</p>
+          <div class="testi-name">Debbie Allens</div>
+          <div class="testi-role">Virtual Assistant</div>
+        </div>
+        <div class="testi-card">
+          <p class="quote">"Thank you, Tine! Your graphics are so perfect, love them! I've received several DMs complimenting the Instagram feed — that's all you!"</p>
+          <div class="testi-name">Jackie Denewitt</div>
+          <div class="testi-role">Author, Sun on Your Shoulders</div>
+        </div>
+        <div class="testi-card">
+          <p class="quote">"I super love her design. She's easy to work with — I just told her the elements I wanted and she came up with a very pretty cover page. Highly recommended!"</p>
+          <div class="testi-name">Christine Levine</div>
+          <div class="testi-role">Founder, Axury Virtual Assistance</div>
+        </div>
+        <div class="testi-card">
+          <p class="quote">"Kristine has been such a blessing to my business. I enjoy working with her so much and appreciate all that she does for me!"</p>
+          <div class="testi-name">Lana</div>
+          <div class="testi-role">ReBalance Kinetics</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section>
+    <div class="wrap" style="max-width:760px;">
+      <div class="section-head">
+        <h2>Frequently asked questions</h2>
+      </div>
+      <div id="faq-list"></div>
+    </div>
+  </section>
+
+  <!-- FINAL CTA -->
+  <section>
+    <div class="wrap">
+      <div class="final-cta">
+        <h2>Ready to give your book the launch it deserves?</h2>
+        <p>Book a free, no-pressure discovery call and let's talk about your story.</p>
+        <button class="btn btn-primary" onclick="goPage('contact')">Book a Free Discovery Call</button>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ============ PORTFOLIO PAGE ============ -->
+<div class="page" id="page-portfolio">
+  <section style="padding-top:48px;">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>Portfolio</h2>
+        <p>Author websites, book trailers, full launch campaigns, and graphic design — filter by category to see it all.</p>
+      </div>
+      <div class="filter-row" id="filter-row"></div>
+      <div class="full-proj-grid" id="full-proj-grid"></div>
+    </div>
+  </section>
+</div>
+
+<!-- ============ CONTACT PAGE ============ -->
+<div class="page" id="page-contact">
+  <section style="padding-top:48px;">
+    <div class="wrap contact-grid">
+      <div class="contact-info">
+        <h2 style="color:var(--dusk);margin-bottom:10px;">Let's talk about your book.</h2>
+        <p style="color:#555;line-height:1.6;margin-bottom:30px;">Tell me a bit about your project and I'll get back to you within 1–2 business days — or grab a slot on my calendar for a free discovery call.</p>
+        <div class="item">
+          <div class="ico">@</div>
+          <div><h5>Email</h5><a href="mailto:kpancho.santos@gmail.com">kpancho.santos@gmail.com</a></div>
+        </div>
+        <div class="item">
+          <div class="ico">◎</div>
+          <div><h5>Location</h5><p>Manila, Philippines</p></div>
+        </div>
+        <div class="item">
+          <div class="ico">f</div>
+          <div><h5>Facebook</h5><a href="https://facebook.com/skillsandsassytin/" target="_blank">facebook.com/skillsandsassytin</a></div>
+        </div>
+        <div class="item">
+          <div class="ico">ig</div>
+          <div><h5>Instagram</h5><a href="https://instagram.com/skills.sassytin" target="_blank">@skills.sassytin</a></div>
+        </div>
+      </div>
+      <div class="booking-box">
+        <h3>Book a free discovery call</h3>
+        <p>15–20 minutes, no pressure — just a conversation about your book and how I can help.</p>
+        <div class="field"><label>Your name</label><input type="text" placeholder="Jane Author"></div>
+        <div class="field"><label>Email</label><input type="email" placeholder="jane@email.com"></div>
+        <div class="field"><label>What do you need help with?</label>
+          <select><option>Social Media Management</option><option>Author Website</option><option>Book Trailer / Video</option><option>Graphic &amp; Admin Support</option><option>Not sure yet</option></select>
+        </div>
+        <div class="field"><label>Tell me about your book</label><textarea placeholder="Title, launch date, what you're hoping for..."></textarea></div>
+        <button class="btn btn-primary" style="width:100%;" onclick="alert('This is a prototype — connect this form to email or a booking tool like Calendly.')">Send &amp; Book Call</button>
+      </div>
+    </div>
+  </section>
+</div>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <div class="brand" style="color:#fff;margin-bottom:12px;"><div class="brand-mark">T</div>Tine Pancho</div>
+        <p style="color:#9db0bd;font-size:0.9rem;line-height:1.6;max-width:32ch;">Positivity, confidence, and persistence — let's make it happen for your book launch.</p>
+      </div>
+      <div>
+        <h5>Explore</h5>
+        <a onclick="goPage('home')" href="#">Home</a>
+        <a onclick="goPage('portfolio')" href="#">Portfolio</a>
+        <a onclick="goPage('contact')" href="#">Contact</a>
+      </div>
+      <div>
+        <h5>Get in touch</h5>
+        <a href="mailto:kpancho.santos@gmail.com">kpancho.santos@gmail.com</a>
+        <a href="https://facebook.com/skillsandsassytin/" target="_blank">Facebook</a>
+        <a href="https://instagram.com/skills.sassytin" target="_blank">Instagram</a>
+      </div>
+    </div>
+    <div class="foot-bottom">© 2026 Kristine "Tine" Pancho. Manila, Philippines.</div>
+  </div>
+</footer>
+
+<div class="lightbox" id="lightbox">
+  <div class="lightbox-inner">
+    <button class="lightbox-close" onclick="closeLightbox()">✕</button>
+    <iframe id="lightbox-frame" src="" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+  </div>
+</div>
+
+<script>
+/* ---------- PROJECT DATA ---------- */
+const projects = [
+  {
+    category: "website",
+    tag: "Designed & Built",
+    title: "Cathy Driskell Books",
+    desc: "Full author website design & development, from homepage to book pages.",
+    media: "browser",
+    coverColor: "#E8A87C",
+    link: "https://cathydriskellbooks.com/"
+  },
+  {
+    category: "website",
+    tag: "Designed & Built",
+    title: "Lillian Pagano",
+    desc: "Custom author website designed and built from the ground up.",
+    media: "browser",
+    coverColor: "#7FA99B",
+    link: "https://www.lillianspagano.com/"
+  },
+  {
+    category: "website",
+    tag: "Designed & Built",
+    title: "Balance & Light Wellness",
+    desc: "Website design and development for a wellness brand.",
+    media: "browser",
+    coverColor: "#2B4C6F",
+    link: "https://www.balanceandlightwellness.ca/"
+  },
+  {
+    category: "website",
+    tag: "Enhanced",
+    title: "Laura Strachan Books",
+    desc: "Enhanced and improved an existing author website.",
+    media: "browser",
+    coverColor: "#D8546B",
+    link: "https://laurastrachanbooks.com/"
+  },
+  {
+    category: "trailer",
+    tag: "Book Trailer",
+    title: "Book Trailer — Project 1",
+    desc: "Designed and created an animated book trailer for launch promotion.",
+    media: "video",
+    link: "https://www.youtube.com/watch?v=B65HlsPw4As",
+    embed: "https://www.youtube.com/embed/B65HlsPw4As"
+  },
+  {
+    category: "trailer",
+    tag: "Book Trailer",
+    title: "Book Trailer — Project 2",
+    desc: "Designed and created a launch trailer to drive pre-release buzz.",
+    media: "video",
+    link: "https://www.youtube.com/watch?v=h1BKoNRZnro",
+    embed: "https://www.youtube.com/embed/h1BKoNRZnro"
+  },
+  {
+    category: "launch",
+    tag: "Book Launch",
+    title: "Adventures of Rocky Series",
+    desc: "Full launch campaign for author Deirdre Palm Adams — content calendar, review graphics, and a free coloring book lead magnet.",
+    media: "cover",
+    img: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/Blank.png/200px-Blank.png"
+  },
+  {
+    category: "launch",
+    tag: "Book Launch",
+    title: "Pickles the Mermaid",
+    desc: "Amazon launch support, storytime event promos, and review graphics for author Laura Strachan.",
+    media: "cover",
+    img: ""
+  },
+  {
+    category: "launch",
+    tag: "Social Media Campaign",
+    title: "Farkel and Sparkle",
+    desc: "Promo graphics and social content for the book's release.",
+    media: "cover",
+    img: ""
+  },
+  {
+    category: "design",
+    tag: "Graphic Design",
+    title: "Logos & Brand Boards",
+    desc: "Custom logo design and brand board creation for author and small business clients.",
+    media: "cover",
+    img: ""
+  },
+  {
+    category: "design",
+    tag: "Graphic Design",
+    title: "Thank-You Cards & Invitations",
+    desc: "Custom thank-you cards and invitations designed in Canva for clients.",
+    media: "cover",
+    img: ""
+  }
+];
+
+const categoryLabels = {
+  all: "All",
+  website: "Author Websites",
+  trailer: "Book Trailers",
+  launch: "Book Launches",
+  design: "Graphic Design"
+};
+
+function projCardHTML(p){
+  let mediaHTML = "";
+  if(p.media === "browser"){
+    mediaHTML = `<div class="proj-media" style="background:${p.coverColor}22;">
+      <div class="browser-bar"><span></span><span></span><span></span></div>
+      <div style="height:calc(100% - 26px);display:flex;align-items:center;justify-content:center;background:${p.coverColor}33;">
+        <span class="serif" style="color:${p.coverColor};font-size:1.3rem;">${p.title}</span>
+      </div>
+      <span class="tag">${p.tag}</span>
+    </div>`;
+  } else if(p.media === "video"){
+    mediaHTML = `<div class="proj-media" style="background:#2B4C6F;">
+      <div class="play-btn"><div class="play-circle"></div></div>
+      <span class="tag">${p.tag}</span>
+    </div>`;
+  } else {
+    mediaHTML = `<div class="proj-media cover" style="background:#f1e9d8;display:flex;align-items:center;justify-content:center;">
+      <span class="hand" style="font-size:1.6rem;color:var(--dusk);text-align:center;padding:0 16px;">${p.title}</span>
+      <span class="tag">${p.tag}</span>
+    </div>`;
+  }
+  return `<div class="proj-card" data-cat="${p.category}" onclick="handleProjClick(${JSON.stringify(p).replace(/"/g,'&quot;')})">
+    ${mediaHTML}
+    <div class="proj-body">
+      <h4>${p.title}</h4>
+      <p>${p.desc}</p>
+      ${p.link ? `<span class="cta-link">${p.media === 'video' ? 'Watch Trailer ▶' : p.media === 'browser' ? 'Visit Site ↗' : ''}</span>` : ''}
+    </div>
+  </div>`;
+}
+
+function handleProjClick(p){
+  if(p.media === "video" && p.embed){
+    openLightbox(p.embed);
+  } else if(p.link){
+    window.open(p.link, "_blank");
+  }
+}
+
+function openLightbox(embedUrl){
+  document.getElementById('lightbox-frame').src = embedUrl + "?autoplay=1";
+  document.getElementById('lightbox').classList.add('open');
+}
+function closeLightbox(){
+  document.getElementById('lightbox').classList.remove('open');
+  document.getElementById('lightbox-frame').src = "";
+}
+
+/* Home: show 6 mixed projects */
+const homeSelection = [projects[0], projects[4], projects[6], projects[3], projects[5], projects[9]];
+document.getElementById('home-proj-grid').innerHTML = homeSelection.map(projCardHTML).join('');
+
+/* Portfolio: filters + full grid */
+const filterRow = document.getElementById('filter-row');
+Object.keys(categoryLabels).forEach(key=>{
+  const btn = document.createElement('button');
+  btn.className = 'filter-btn' + (key === 'all' ? ' active' : '');
+  btn.textContent = categoryLabels[key];
+  btn.dataset.filter = key;
+  btn.onclick = ()=> setFilter(key);
+  filterRow.appendChild(btn);
+});
+document.getElementById('full-proj-grid').innerHTML = projects.map(projCardHTML).join('');
+
+function setFilter(key){
+  document.querySelectorAll('.filter-btn').forEach(b=>b.classList.toggle('active', b.dataset.filter === key));
+  document.querySelectorAll('#full-proj-grid .proj-card').forEach(card=>{
+    card.classList.toggle('hidden', key !== 'all' && card.dataset.cat !== key);
+  });
+}
+
+/* ---------- FAQ ---------- */
+const faqs = [
+  {q:"Do you work with self-published authors?", a:"Absolutely — most of my clients are self-published or indie children's book authors. I tailor the approach to whatever platform and budget you're working with."},
+  {q:"Do you only take on ongoing retainers, or can I book a one-off project?", a:"Both! Book trailers, websites, and launch campaigns are often one-time projects, while social media management usually works best as an ongoing partnership."},
+  {q:"How far in advance should I book before my launch date?", a:"Ideally 6–8 weeks before launch for social media and website work, and 3–4 weeks for a book trailer — but reach out even if your timeline is tighter and we'll see what's possible."},
+  {q:"What if I'm not sure what I need yet?", a:"That's exactly what the discovery call is for. We'll talk through your book and goals, and I'll recommend where to start."}
+];
+const faqList = document.getElementById('faq-list');
+faqList.innerHTML = faqs.map((f,i)=>`
+  <div class="faq-item" id="faq-${i}">
+    <div class="faq-q" onclick="toggleFaq(${i})"><span>${f.q}</span><span class="faq-plus">+</span></div>
+    <div class="faq-a">${f.a}</div>
+  </div>`).join('');
+function toggleFaq(i){
+  document.getElementById('faq-'+i).classList.toggle('open');
+}
+
+/* ---------- PAGE NAV ---------- */
+function goPage(name){
+  document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+  document.getElementById('page-'+name).classList.add('active');
+  document.querySelectorAll('.navbtn').forEach(b=>b.classList.toggle('current', b.dataset.page === name));
+  window.scrollTo({top:0, behavior:'instant'});
+}
+</script>
+</body>
+</html>
